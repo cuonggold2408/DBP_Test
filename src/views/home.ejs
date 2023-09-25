@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="icon"
+      type="images/x-icon"
+      href="https://courses.uet.vnu.edu.vn/pluginfile.php/1/theme_lambda/favicon/1695283202/captiveportal-logo2_new.png"
+    />
+    <link rel="stylesheet" href="/css/grid.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>CTĐ Shop</title>
+  </head>
+  <body>
+    <%= JSON.stringify(product[0].name) %>
+    <header class="header">
+      <div class="container">
+        <div class="box">
+          <a href="/">
+            <h1 class="title-shop">CTĐ Shop</h1>
+          </a>
+          <span class="border-top"></span>
+          <span class="border-right"></span>
+          <span class="border-bottom"></span>
+          <span class="border-left"></span>
+        </div>
+        <ul class="navi">
+          <li><a href="/">Home</a></li>
+          <li><a href="#!">Contact</a></li>
+          <li><a href="#!">About</a></li>
+          <li><a href="#!">Sign Up</a></li>
+          <div class="bar"></div>
+        </ul>
+        <div class="cart">
+          <div class="search">
+            <input type="text" placeholder="What are you looking for?" />
+            <i class="fa-solid fa-heart heart"></i>
+            <i class="fa-solid fa-cart-shopping cart-buy"></i>
+          </div>
+        </div>
+      </div>
+      <hr />
+    </header>
+    <!-- End .header -->
+    <section class="select-products">
+      <div class="container">
+        <div class="info-bar">
+          <div class="phone">
+            <div class="include">
+              <i class="fa-solid fa-mobile"></i>
+              <span>Điện thoại, Tablet</span>
+            </div>
+            <i class="fa-solid fa-angle-right right"></i>
+          </div>
+          <div class="phone">
+            <div class="include">
+              <i class="fa-solid fa-laptop"></i>
+              <span>Laptop</span>
+            </div>
+            <i class="fa-solid fa-angle-right right"></i>
+          </div>
+          <div class="phone">
+            <div class="include">
+              <i class="fa-solid fa-headphones"></i>
+              <span>Tai nghe</span>
+            </div>
+            <i class="fa-solid fa-angle-right right"></i>
+          </div>
+          <div class="phone">
+            <div class="include">
+              <i class="fa-solid fa-clock"></i>
+              <span>Đồng hồ, Camera</span>
+            </div>
+            <i class="fa-solid fa-angle-right right"></i>
+          </div>
+          <div class="phone">
+            <div class="include">
+              <i class="fa-solid fa-tv"></i>
+              <span>Tivi</span>
+            </div>
+            <i class="fa-solid fa-angle-right right"></i>
+          </div>
+          <div class="phone">
+            <div class="include">
+              <i class="fa-solid fa-pizza-slice"></i>
+              <span>Pizza</span>
+            </div>
+            <i class="fa-solid fa-angle-right right"></i>
+          </div>
+          <div class="phone">
+            <div class="include">
+              <i class="fa-solid fa-car"></i>
+              <span>Ô tô</span>
+            </div>
+            <i class="fa-solid fa-angle-right right"></i>
+          </div>
+          <div class="phone">
+            <div class="include">
+              <i class="fa-solid fa-plane"></i>
+              <span>Máy bay</span>
+            </div>
+            <i class="fa-solid fa-angle-right right"></i>
+          </div>
+          <div class="phone">
+            <div class="include">
+              <i class="fa-solid fa-pen"></i>
+              <span>Bút</span>
+            </div>
+            <i class="fa-solid fa-angle-right right"></i>
+          </div>
+        </div>
+        <!-- End .info-bar -->
+        <div class="carousel">
+          <div class="carousel-inner">
+            <div class="item">
+              <img src="/images/iphone.webp" alt="" />
+            </div>
+            <div class="item">
+              <img src="/images/galaxy.webp" alt="" />
+            </div>
+            <div class="item">
+              <img src="/images/oppo.webp" alt="" />
+            </div>
+            <div class="item">
+              <img src="/images/realme.webp" alt="" />
+            </div>
+            <div class="item">
+              <img src="/images/xiaomi.webp" alt="" />
+            </div>
+          </div>
+          <ul class="dots">
+            <li class="dot active" data-index="0"></li>
+            <li class="dot" data-index="1"></li>
+            <li class="dot" data-index="2"></li>
+            <li class="dot" data-index="3"></li>
+            <li class="dot" data-index="4"></li>
+          </ul>
+          <!-- End .carousel-inner -->
+          <div class="carousel-nav">
+            <span class="prev">&lt;</span>
+            <span class="next">&gt;</span>
+          </div>
+        </div>
+        <!-- End .Carousel -->
+        <div class="right-bar">
+          <a href="#!">
+            <img src="/images/m14-right-homepage-th9.webp" alt="" />
+          </a>
+          <a href="#!">
+            <img src="/images/ipad-102-th9-001231.webp" alt="" />
+          </a>
+          <a href="#!">
+            <img src="/images/asus tuf.webp" alt="" />
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- End select-products -->
+    <section class="banner-section">
+      <div class="container">
+        <div class="banner-student">
+          <a href="#!">
+            <img
+              src="/images/banner/banner-special-desk-b2s-new.webp"
+              alt="Chào mừng năm học mới"
+              loading="lazy"
+            />
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- End .banner-section -->
+    <main class="main-products">
+      <div class="container">
+        <div class="title">
+          <h2>ĐIỆN THOẠI NỔI BẬT</h2>
+          <div class="info">
+            <div class="apple">
+              <a href="#!">Apple</a>
+            </div>
+            <div class="xiaomi">
+              <a href="#!">Xiaomi</a>
+            </div>
+            <div class="samsung">
+              <a href="#!">Samsung</a>
+            </div>
+            <div class="oppo">
+              <a href="#!">Oppo</a>
+            </div>
+          </div>
+        </div>
+        <!-- End .title -->
+        <div class="product-info-container">
+          <% for(let i = 0; i < 5; i++) {%>
+            <div class="product-info">
+              <a
+                href="/ProductDetail/<%= product[i].id%>""
+                target="_self"
+                class="link-images"
+              >
+                <div class="product-images">
+                  <img
+                    src=<%= product[i].link %>
+                    alt=""
+                    loading="lazy"
+                  />
+                </div>
+                <!-- End .product-images -->
+                <div class="product-name">
+                  <h3><%= product[i].name %></h3>
+                </div>
+                <!-- End .product-name -->
+                <div class="box-price">
+                  <p class="price-left"><%= product[i].price_left %></p>
+                  <p class="price-right"><%= product[i].price_right %></p>
+                </div>
+                <!-- End .box-price -->
+                <div class="guarantee">
+                  <p>Bảo hành đến khi máy hỏng</p>
+                </div>
+                <!-- End .guarantee -->
+                <div class="rating">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <!-- End .rating -->
+                <div class="comment">
+                  <img
+                  
+                    src="/images/1683793637728_label.webp"
+                    alt="siêu rẻ"
+                  />
+                </div>
+                <!-- End .comment -->
+              </a>
+            </div>
+            
+            <%}%>
+        </div>
+        <!-- End .product-info-container -->
+        <div class="product-info-container">
+          <% for(let i = 5; i < product.length; i++) {%>
+            <div class="product-info">
+              <a
+                href="/ProductDetail/<%= product[i].id %>"
+                target="_self"
+                class="link-images"
+              >
+                <div class="product-images">
+                  <img
+                    src=<%= product[i].link %>
+                    alt=""
+                    loading="lazy"
+                  />
+                </div>
+                <!-- End .product-images -->
+                <div class="product-name">
+                  <h3><%= product[i].name %></h3>
+                </div>
+                <!-- End .product-name -->
+                <div class="box-price">
+                  <p class="price-left"><%= product[i].price_left %></p>
+                  <p class="price-right"><%= product[i].price_right %></p>
+                </div>
+                <!-- End .box-price -->
+                <div class="guarantee">
+                  <p>Bảo hành đến khi máy hỏng</p>
+                </div>
+                <!-- End .guarantee -->
+                <div class="rating">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <!-- End .rating -->
+                <div class="comment">
+                  <img
+                    src="/images/1683793637728_label.webp"
+                    alt="siêu rẻ"
+                  />
+                </div>
+                <!-- End .comment -->
+              </a>
+            </div>
+            
+            <%}%>
+        </div>
+        <!-- End .product-info-container -->
+      </div>
+    </main>
+    <!-- End .main -->
+    <script src="/js/carousel/app.js"></script>
+    <script src="/js/common/app.js"></script>
+  </body>
+</html>

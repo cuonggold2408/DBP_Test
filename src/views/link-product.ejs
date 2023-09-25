@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://courses.uet.vnu.edu.vn/pluginfile.php/1/theme_lambda/favicon/1695283202/captiveportal-logo2_new.png"
+    />
+    <link rel="stylesheet" href="/css/grid.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title><%= product_item[0].name_detail %></title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="box">
+          <a href="/">
+            <h1 class="title-shop">CTĐ Shop</h1>
+          </a>
+          <span class="border-top"></span>
+          <span class="border-right"></span>
+          <span class="border-bottom"></span>
+          <span class="border-left"></span>
+        </div>
+        <ul class="navi">
+          <li><a href="/">Home</a></li>
+          <li><a href="#!">Contact</a></li>
+          <li><a href="#!">About</a></li>
+          <li><a href="#!">Sign Up</a></li>
+          <div class="bar"></div>
+        </ul>
+        <div class="cart">
+          <div class="search">
+            <input type="text" placeholder="What are you looking for?" />
+            <i class="fa-solid fa-heart heart"></i>
+            <i class="fa-solid fa-cart-shopping cart-buy"></i>
+          </div>
+        </div>
+      </div>
+      <hr />
+    </header>
+    <!-- End .header -->
+    <section class="section-product">
+      <div class="container">
+        <div class="title-product">
+          <h3><%= product_item[0].name_main %></h3>
+          <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <!-- End .rating -->
+          <span class="rate-person">999+ đánh giá</span>
+        </div>
+        <!-- End .title-product -->
+        <div class="info-product">
+          <div class="image">
+            <div class="image-1">
+              <img
+                src=<%= product_item[0].link_image1 %>
+                alt="black"
+              />
+            </div>
+            <!-- <div class="image-2">
+              <img src="../assets/image/dangky.webp" alt="" />
+            </div> -->
+            <div class="info-image">
+              <div class="include-product">
+                <div class="title">
+                  <svg
+                    width="17"
+                    height="15"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16.964 5.563v-.036c-.036-.035-.036-.071-.072-.071L8.787.542C8.75.506 8.715.506 8.679.506L.287.076C.143.076.072.148 0 .256V2.73c0 .108.036.18.143.215l2.08 1.291L.396 5.42a.326.326 0 0 0-.108.25l.108 3.695c0 .072.035.18.107.215l8.034 5.308c.036 0 .072.036.107.036.036 0 .072 0 .108-.036l8.034-5.308c.072-.036.107-.143.107-.215L17 5.671c0-.036 0-.072-.036-.108ZM8.572 1.044l7.209 4.304-7.424-.18L1.29.65l7.28.394Zm7.316 4.842-1.937 1.22H9.432l-.717-1.4 7.173.18Zm-15.35-3.3V.83l7.28 4.663-.968.932L.538 2.586Zm2.224 1.937 1.614 1.04-1.65 1.112-1.65-1.04 1.686-1.112Zm5.63 9.648L.897 9.186.825 6.137l7.567 4.698v3.336Zm.287-3.802L3.228 6.998l1.685-1.112 1.865 1.148c.108.071.252.036.323-.036l1.112-1.076.825 1.614c.036.107.143.143.251.143h3.802l-4.412 2.69Zm7.747-1.183L8.93 14.17v-3.336l7.568-4.698-.072 3.049Z"
+                      fill="#BE1E2D"
+                    ></path>
+                  </svg>
+                  <p>Bộ sản phẩm bao gồm</p>
+                </div>
+                <!-- End .title -->
+                <p class="info-desc">
+                  Máy mới nguyên seal 100%, chính hãng Việt Nam <br />
+                  CTĐ Shop là đại lý uỷ quyền chính thức của Apple Việt Nam
+                </p>
+                <!-- End .info-desc -->
+                <p class="info-final-include">
+                  <span>Bộ sản phẩm:</span> Thân máy, Hộp, Cáp, Cây lấy sim,
+                  Sách hướng dẫn, Túi giấy cao cấp CTĐ Shop
+                </p>
+                <div class="policy">
+                  <div class="title">
+                    <svg
+                      width="17"
+                      height="18"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15.262 2.915 8.755.054a.63.63 0 0 0-.51 0l-6.507 2.86a.705.705 0 0 0-.41.65v3.478c0 4.789 2.734 9.096 6.921 10.906.16.07.341.07.502 0 4.187-1.81 6.92-6.117 6.92-10.906V3.564a.705.705 0 0 0-.409-.65Zm-.918 4.127c0 4.07-2.258 7.818-5.844 9.491-3.49-1.628-5.844-5.31-5.844-9.491V4.033L8.5 1.464l5.844 2.57v3.008Zm-6.578 2.37L10.62 6.39a.638.638 0 0 1 .94 0c.259.274.259.72 0 .994l-3.324 3.52a.638.638 0 0 1-.94 0L5.441 8.937a.733.733 0 0 1 0-.994.638.638 0 0 1 .939 0l1.386 1.468Z"
+                        fill="#BE1E2D"
+                      ></path>
+                    </svg>
+                    <p>Bảo hành</p>
+                  </div>
+                  <div class="info-desc-policy">
+                    <p>
+                      Độc quyền tại CTĐ SHop: Bảo hành Hư lỗi - Đổi mới trong
+                      vòng <span>33 ngày</span>. Bảo hành chính hãng
+                      <span>12 tháng</span>
+                    </p>
+                    <p class="footer-policy">
+                      Bảo hành Hư lỗi - Đổi mới <span>12 tháng</span>, rơi vỡ
+                      với C.Care
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- End .include-product -->
+              <div class="introduct-product">
+                <p>
+                  <span><%= product_item[0].name_main %></span> chính
+                  thống giá rẻ chỉ có tại Di Động Việt -
+                  <span>Đại lý uỷ quyền chính thức của Apple</span> tại Việt
+                  Nam. Với thiết kế đầy sang trọng đẳng cấp, cùng với những
+                  trang bị chất lượng như camera chính <span>48MP</span>, 2 ống
+                  kính phụ <span>12MP</span>, khả năng zoom quang học
+                  <span>5x</span>. Cùng với nâng cấp hiệu năng ấn tượng với con
+                  chip mới nhất đầy mạnh mẽ <span>Apple A17 Pro</span>. Cùng với
+                  viên pin lớn kết hợp cùng hệ điều hành mới nhất
+                  <span>iOS 17</span> mang đến thời lượng pin bền bỉ, ấn tượng.
+                </p>
+              </div>
+              <!-- End .introduct-product -->
+            </div>
+          </div>
+          <!-- End .image -->
+          <div class="info-phone">
+            <div class="title-info-phone">
+              <h3><%= product_item[0].name_main %></h3>
+            </div>
+            <div class="id-product">
+              <p>SKU: <span><%= product_item[0].mso %></span></p>
+            </div>
+            <div class="choose-color">
+              <p>Chọn màu để xem giá chi tiết:</p>
+            </div>
+            <!-- End .choose-color -->
+            <div class="list-color">
+              <div class="item-black check-choose">
+                <span class="color-black">Màu đen</span>
+                <div class="icon-check-black show-item-check-black">
+                  <i class="fa-solid fa-circle-check"></i>
+                </div>
+              </div>
+              <div class="item-white">
+                <span class="color-white">Màu trắng</span>
+                <div class="icon-check-white">
+                  <i class="fa-solid fa-circle-check"></i>
+                </div>
+              </div>
+            </div>
+            <!-- End .list-color -->
+
+            <div class="costs">
+              <h4>Giá bán</h4>
+              <div class="box-price">
+                <p class="price-left"><%= product_item[0].price_left%></p>
+                <p class="price-right"><%= product_item[0].price_right%></p>
+              </div>
+              <!-- End .box-price -->
+            </div>
+            <!-- End .costs -->
+
+            <div class="buy-product">
+              <div class="buy-now">
+                <button class="btn-buy">
+                  <strong>Mua ngay</strong>
+                  <span>(Giao nhanh từ 2 giờ hoặc nhận tại cửa hàng)</span>
+                </button>
+              </div>
+              <!-- End .buy-now -->
+              <div class="add-to-cart">
+                <button class="add-cart">
+                  <img
+                    src="/images/add-to-cart.webp"
+                    width="50"
+                    alt="cart"
+                  />
+                  <span>Thêm vào giỏ</span>
+                </button>
+              </div>
+            </div>
+            <!-- End .buy-product -->
+            <div class="discount">
+              <div class="title">
+                <h4>Ưu đãi thêm</h4>
+              </div>
+              <ul class="info-discount">
+                <li>Giảm thêm 1% cho thành viên CTĐ Shop</li>
+                <li>Giảm 3% khi nhập mã DATPHE</li>
+                <li>Giảm 3% khi nhập mã TUANDO</li>
+                <li>Giảm 99% khi nhập mã CUONGNGUYEN</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- End .info-product -->
+      </div>
+    </section>
+    <!-- End .section-product -->
+    <div id = "link1" style = "display: none"><%= product_item[0].link_image1 %></div>
+    <div id = "link2" style = "display: none"><%= product_item[0].link_image2 %></div>
+    <script src="/js/common/app.js"></script>
+    <script src="/js/choose-color/app.js"></script>
+  </body>
+</html>
