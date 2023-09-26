@@ -1,0 +1,155 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="icon"
+      type="images/x-icon"
+      href="https://courses.uet.vnu.edu.vn/pluginfile.php/1/theme_lambda/favicon/1695283202/captiveportal-logo2_new.png"
+    />
+    <link rel="stylesheet" href="/css/grid.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Giỏ hàng</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="box">
+          <a href="/">
+            <h1 class="title-shop">CTĐ Shop</h1>
+          </a>
+          <span class="border-top"></span>
+          <span class="border-right"></span>
+          <span class="border-bottom"></span>
+          <span class="border-left"></span>
+        </div>
+        <ul class="navi">
+          <li><a href="/">Home</a></li>
+          <li><a href="#!">Contact</a></li>
+          <li><a href="#!">About</a></li>
+          <li><a href="#!">Sign Up</a></li>
+          <div class="bar"></div>
+        </ul>
+        <div class="cart">
+          <div class="search">
+            <input type="text" placeholder="What are you looking for?" />
+            <i class="fa-solid fa-heart heart"></i>
+            <i class="fa-solid fa-cart-shopping cart-buy"></i>
+          </div>
+        </div>
+      </div>
+      <hr />
+    </header>
+    <!-- End .header -->
+    <div class="build-cart">
+      <div class="container">
+        <a href="/">
+          <div class="undo-home">
+            <span>&lt; Tiếp tục mua hàng</span>
+          </div>
+        </a>
+        <!-- End .undo-home -->
+        <div class="cart-product">
+          <div class="header-cart-product">
+            <div class="headerCart">
+              <svg
+                width="25"
+                height="25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M22.896 1.334v5.238c0 .23-.186.416-.416.416h-1.517a.417.417 0 0 1-.416-.416v-.707a2.113 2.113 0 0 0-2.113-2.113h-1.17a.42.42 0 0 1-.413-.36 2.107 2.107 0 0 0-2.085-1.798h-.552a.418.418 0 0 1-.406-.51c.157-.703.65-1.03 1.227-1.03h6.581c.707 0 1.28.573 1.28 1.28Zm-6.975 1.83a1.27 1.27 0 0 0-1.155-.736h-4.532a1.28 1.28 0 0 0-1.28 1.28v2.864c0 .23.187.416.417.416h2.595c.23 0 .417-.186.417-.416v-.707c0-1.167.946-2.113 2.113-2.113h1.045a.416.416 0 0 0 .38-.588Zm2.513 1.421h-3.938a1.28 1.28 0 0 0-1.28 1.28v.707c0 .23.187.416.417.416h5.664c.23 0 .416-.186.416-.416v-.707a1.28 1.28 0 0 0-1.28-1.28ZM7.618 19.767h13.25c.792 0 1.476-.537 1.663-1.307l2.457-10.123a.417.417 0 0 0-.405-.515H6.901l-.1-.774a1.715 1.715 0 0 0-1.697-1.492h-3.42C.756 5.556 0 6.312 0 7.24c0 .93.756 1.685 1.684 1.685h1.474c.92 0 1.667-.748 1.667-1.667V6.39h.28c.44 0 .814.33.87.766l1.52 11.782a2.227 2.227 0 0 0-2.1 2.22c0 1.227.997 2.224 2.223 2.224h.356a1.984 1.984 0 0 0 1.937 1.565c.949 0 1.744-.672 1.936-1.565h6.916a1.984 1.984 0 0 0 1.936 1.565 1.983 1.983 0 0 0 1.981-1.981 1.983 1.983 0 0 0-1.98-1.981c-.95 0-1.745.671-1.937 1.564h-6.916a1.984 1.984 0 0 0-1.936-1.564c-.95 0-1.745.671-1.937 1.564h-.356c-.767 0-1.39-.624-1.39-1.39 0-.767.623-1.39 1.39-1.39Z"
+                  fill="#BE1E2D"
+                ></path>
+              </svg>
+              <h3>Giỏ hàng ( <span>2</span> sản phẩm )</h3>
+            </div>
+            <!-- End .headerCart -->
+            <div class="total-final">
+              <svg
+                width="25"
+                height="25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16.943 8.887c-4.442 0-8.056 3.614-8.056 8.056C8.887 21.386 12.5 25 16.943 25 21.386 25 25 21.386 25 16.943c0-4.442-3.614-8.056-8.057-8.056Zm0 7.324a2.2 2.2 0 0 1 2.198 2.197c0 .954-.614 1.76-1.465 2.063v1.6H16.21v-1.6a2.194 2.194 0 0 1-1.465-2.063h1.465a.733.733 0 1 0 .732-.732 2.2 2.2 0 0 1-2.197-2.197c0-.954.614-1.76 1.465-2.063v-1.6h1.465v1.6a2.194 2.194 0 0 1 1.465 2.063h-1.465a.733.733 0 1 0-.733.732ZM8.154 8.887c4.518 0 8.057-1.93 8.057-4.395C16.21 2.028 12.67 0 8.154 0S0 2.028 0 4.492s3.637 4.395 8.154 4.395ZM0 16.482v1.194c0 2.464 3.637 4.394 8.154 4.394.257 0 .505-.023.757-.036a9.461 9.461 0 0 1-1.227-2.911c-3.267-.09-6.104-1.094-7.684-2.64ZM7.457 17.639c-.017-.23-.035-.461-.035-.696 0-.763.1-1.502.27-2.214-3.27-.089-6.11-1.093-7.692-2.641v1.193c0 2.334 3.284 4.167 7.457 4.357ZM8.154 13.281h.003a9.553 9.553 0 0 1 2.057-3.067c-.662.083-1.345.138-2.06.138-3.477 0-6.497-1.037-8.154-2.659v1.194c0 2.464 3.637 4.394 8.154 4.394Z"
+                  fill="#BE1E2D"
+                ></path>
+              </svg>
+              <h3>Tạm tính</h3>
+            </div>
+          </div>
+          <!-- End .header-cart-product -->
+          <div class="info-cart-product">
+            <div class="title-cart-product">
+              <div class="container">
+                <div class="row">
+                  <div class="name-product">Tên sản phẩm</div>
+                  <div class="method-product">
+                    <div>Đơn giá</div>
+                    <div>Số lượng</div>
+                    <div>Thành tiền</div>
+                    <div>Thao tác</div>
+                  </div>
+                </div>
+                <hr />
+                <div class="product-cart">
+                  <div class="image-product">
+                    <img
+                      src="/images/iphone15/iphone15promax/iphone-15-promax-2-ow.png"
+                      alt=""
+                    />
+                    <div class="info-image">
+                      APPLE IPHONE 15 PRO MAX 128GB (CTY) - Black - New
+                    </div>
+                  </div>
+                  <!-- End .image-product -->
+                  <div class="costs-product">35.000.000đ</div>
+                  <div class="quantity-product">
+                    <div class="counter">
+                      <button class="counter-descrease">
+                        <i class="fa fa-minus"></i>
+                      </button>
+                      <h4 class="counter-number">0</h4>
+                      <button class="counter-increase">
+                        <i class="fa fa-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="total-product">35.000.000đ</div>
+                  <div class="operation">
+                    <i class="fa-solid fa-trash"></i>
+                  </div>
+                </div>
+              </div>
+              <!-- End .container -->
+              <div class="final-buy-cart">
+                <div class="title-final-cart">
+                  <div class="text">
+                    <span>Tổng cộng: </span>
+                    <span>35.000.000đ</span>
+                  </div>
+                  <button class="buy">Đặt hàng</button>
+                </div>
+              </div>
+            </div>
+            <!-- End .title-cart-product -->
+          </div>
+        </div>
+        <!-- End .cart-product -->
+      </div>
+    </div>
+    <!-- End .build-cart -->
+    <script src="/js/counter/app.js"></script>
+    <script src="/js/common/app.js"></script>
+  </body>
+</html>

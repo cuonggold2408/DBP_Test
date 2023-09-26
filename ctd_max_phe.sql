@@ -69,7 +69,7 @@ CREATE TABLE `product_item` (
 
 LOCK TABLES `product_item` WRITE;
 /*!40000 ALTER TABLE `product_item` DISABLE KEYS */;
-INSERT INTO `product_item` VALUES (1,'Iphone15 Promax','iPhone 15 Pro Max 256GB | Chính hãng VN/A','/images/iphone15/iphone15promax/iphone15promaxWhite.webp','3400000004250','/images/iphone15/iphone15promax/iphone15promaxBlack.webp');
+INSERT INTO `product_item` VALUES (1,'Iphone15 Promax','iPhone 15 Pro Max 256GB | Chính hãng VN/A','/images/iphone15/iphone15promax/iphone15promaxWhite.webp','3400000004250','/images/iphone15/iphone15promax/iphone15promaxBlack.webp'),(2,'Samsung Galaxy S23 Ultra','Samsung Galaxy S23 Ultra 256GB','/images/samsungs23/ultra/s23-ultra-white.webp','88881','/images/samsungs23/ultra/s23-ultra-black.webp'),(3,'iPhone 14 Pro Max 128GB','iPhone 14 Pro Max 128GB | Chính hãng VN/A','/images/iphone14/promax/ip_14_promax_white.webp','88882','/images/iphone14/promax/ip_14_promax_black.webp'),(4,'Xiaomi Redmi Note 12','Xiaomi Redmi Note 12 128GB Chính hãng (BH19T)','/images/xiaomi_note12/xiaomi_note12_white.webp','88883','/images/xiaomi_note12/xiaomi_note12_black.webp'),(5,'OPPO Find N2 Flip','OPPO Find N2 Flip 256GB Chính Hãng','/images/oppo_findN2/oppo_findN2_white.webp','88884','/images/oppo_findN2/oppo_findN2_black.webp'),(6,'iPhone 12 64GB','iPhone 12 64GB Chính Hãng (VN/A)','/images/iphone12/iphone12_white.webp','88885','/images/iphone12/iphone12_black.webp'),(8,'iPhone 11 64GB','iPhone 11 64GB ','/images/iphone11/iphone11_white.webp','88887','/images/iphone11/iphone11_black.webp'),(10,'iPhone 14 Plus 512GB','iPhone 14 Plus 512GB Chính Hãng (VN/A)','/images/iphone14/plus/iphone14_white.webp','88889','/images/iphone14/plus/iphone14_black.webp'),(9,'Samsung Galaxy Z Fold5','Samsung Galaxy Z Fold5 5G 512GB Chính Hãng','/images/samsung_zfold5/samsung_zfold5_white.webp','88888','/images/samsung_zfold5/samsung_zfold5_black.webp'),(7,'Xiaomi Redmi Note 12','Xiaomi Redmi Note 12 128GB Chính hãng (BH19T)','/images/xiaomi_note12/xiaomi_note12_white.webp','88886','/images/xiaomi_note12/xiaomi_note12_black.webp');
 /*!40000 ALTER TABLE `product_item` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -82,4 +82,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-25 12:27:31
+-- Dump completed on 2023-09-25 15:42:23

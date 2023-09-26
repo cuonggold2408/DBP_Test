@@ -177,22 +177,29 @@
 
             <div class="costs">
               <h4>Giá bán</h4>
-              <div class="box-price">
-                <p class="price-left"><%= product_item[0].price_left%></p>
-                <p class="price-right"><%= product_item[0].price_right%></p>
+              <div class="box-price checkedBlack price-black">
+                <p class="price-left">35.000.000đ</p>
+                <p class="price-right">34.999.999đ</p>
+              </div>
+              <!-- End .box-price -->
+              <div class="box-price price-white">
+                <p class="price-left">34.000.000đ</p>
+                <p class="price-right">35.999.999đ</p>
               </div>
               <!-- End .box-price -->
             </div>
             <!-- End .costs -->
 
             <div class="buy-product">
-              <div class="buy-now">
-                <button class="btn-buy">
-                  <strong>Mua ngay</strong>
-                  <span>(Giao nhanh từ 2 giờ hoặc nhận tại cửa hàng)</span>
-                </button>
-              </div>
-              <!-- End .buy-now -->
+              <a href="/cart/<%= product_item[0].name_detail %>">
+                <div  class="buy-now">
+                  <button class="btn-buy">
+                    <strong>Mua ngay</strong>
+                    <span>(Giao nhanh từ 2 giờ hoặc nhận tại cửa hàng)</span>
+                  </button>
+                </div>
+                <!-- End .buy-now -->
+              </a>
               <div class="add-to-cart">
                 <button class="add-cart">
                   <img

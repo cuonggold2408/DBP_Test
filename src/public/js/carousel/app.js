@@ -127,3 +127,17 @@ carouselInner.addEventListener("mouseleave", () => {
     carouselInner.style.transform = `translateX(${position}px)`;
   }
 });
+
+var prev = document.querySelector(".prev");
+var next = document.querySelector(".next");
+
+var carousel = document.querySelector(".carousel");
+
+carousel.addEventListener("mouseenter", function () {
+  prev.classList.add("appear");
+  next.classList.add("appear");
+});
+carousel.addEventListener("mouseleave", function () {
+  prev.classList.remove("appear");
+  next.classList.remove("appear");
+});
