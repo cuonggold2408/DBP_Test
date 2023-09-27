@@ -1,13 +1,20 @@
-const counterNumber = document.querySelector(".counter-number");
-const counterAdd = document.querySelector(".counter-increase");
-const counterMinus = document.querySelector(".counter-descrease");
-let counterValue = parseInt(counterNumber.textContent);
-counterAdd.addEventListener("click", function () {
-  counterValue++;
-  counterNumber.textContent = counterValue;
-});
-counterMinus.addEventListener("click", function () {
-  if (counterValue <= 0) return 0;
-  counterValue--;
-  counterNumber.textContent = counterValue;
+var counters = document.querySelectorAll(".counter");
+
+counters.forEach((counter) => {
+  let counterNumber = counter.querySelector(".counter-number");
+  let counterIncrease = counter.querySelector(".counter-increase");
+  let counterDecrease = counter.querySelector(".counter-descrease");
+
+  let counterValue = parseInt(counterNumber.textContent);
+
+  counterIncrease.addEventListener("click", function () {
+    counterValue++;
+    counterNumber.textContent = counterValue;
+  });
+
+  counterDecrease.addEventListener("click", function () {
+    if (counterValue <= 0) return;
+    counterValue--;
+    counterNumber.textContent = counterValue;
+  });
 });

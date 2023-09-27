@@ -1,3 +1,4 @@
+
 var listColor = document.querySelector(".list-color");
 var itemBlack = listColor.querySelector(".item-black");
 var iconCheckBlack = itemBlack.querySelector(".icon-check-black");
@@ -8,7 +9,6 @@ var images = {
   black: document.getElementById("link1").innerText,
   white: document.getElementById("link2").innerText,
 };
-
 var priceBlack = document.querySelector(".price-black");
 var priceWhite = document.querySelector(".price-white");
 
@@ -34,5 +34,7 @@ itemWhite.addEventListener("click", function () {
     priceWhite.classList.add("checkedWhite");
   }
 });
+const color = "black";
+module.exports = color;
 
 // Làm tính năng đổi giá sản phẩm

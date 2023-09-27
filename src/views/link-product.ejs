@@ -52,7 +52,7 @@
     <section class="section-product">
       <div class="container">
         <div class="title-product">
-          <h3><%= product_item[0].name_main %></h3>
+          <h3><%= product_item[0].name %></h3>
           <div class="rating">
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
@@ -132,7 +132,7 @@
               <!-- End .include-product -->
               <div class="introduct-product">
                 <p>
-                  <span><%= product_item[0].name_main %></span> chính
+                  <span><%= product_item[0].name %></span> chính
                   thống giá rẻ chỉ có tại Di Động Việt -
                   <span>Đại lý uỷ quyền chính thức của Apple</span> tại Việt
                   Nam. Với thiết kế đầy sang trọng đẳng cấp, cùng với những
@@ -150,7 +150,7 @@
           <!-- End .image -->
           <div class="info-phone">
             <div class="title-info-phone">
-              <h3><%= product_item[0].name_main %></h3>
+              <h3><%= product_item[0].name %></h3>
             </div>
             <div class="id-product">
               <p>SKU: <span><%= product_item[0].mso %></span></p>
@@ -178,20 +178,20 @@
             <div class="costs">
               <h4>Giá bán</h4>
               <div class="box-price checkedBlack price-black">
-                <p class="price-left">35.000.000đ</p>
-                <p class="price-right">34.999.999đ</p>
+                <p class="price-left"><%= product_item[0].price_left %></p>
+                <p class="price-right"><%= product_item[0].price_right %></p>
               </div>
               <!-- End .box-price -->
               <div class="box-price price-white">
-                <p class="price-left">34.000.000đ</p>
-                <p class="price-right">35.999.999đ</p>
+                <p class="price-left"><%= product_item[0].price_left_white %> </p>
+                <p class="price-right"><%= product_item[0].price_right_white %></p>
               </div>
               <!-- End .box-price -->
             </div>
             <!-- End .costs -->
 
             <div class="buy-product">
-              <a href="/cart/<%= product_item[0].name_detail %>">
+              <a href="/cart/<%= product_item[0].id %>">
                 <div  class="buy-now">
                   <button class="btn-buy">
                     <strong>Mua ngay</strong>
@@ -200,7 +200,7 @@
                 </div>
                 <!-- End .buy-now -->
               </a>
-              <div class="add-to-cart">
+              <a href = "/addToCart/<%= product_item[0].id %>"><div class="add-to-cart">
                 <button class="add-cart">
                   <img
                     src="/images/add-to-cart.webp"
@@ -209,7 +209,7 @@
                   />
                   <span>Thêm vào giỏ</span>
                 </button>
-              </div>
+              </div></a>
             </div>
             <!-- End .buy-product -->
             <div class="discount">

@@ -70,7 +70,7 @@
                   fill="#BE1E2D"
                 ></path>
               </svg>
-              <h3>Giỏ hàng ( <span>2</span> sản phẩm )</h3>
+              <h3>Giỏ hàng ( <span><%= cart.length  %></span> sản phẩm )</h3>
             </div>
             <!-- End .headerCart -->
             <div class="total-final">
@@ -102,18 +102,20 @@
                   </div>
                 </div>
                 <hr />
+                <% for(let i = 0; i < cart.length; i++)
+                {%>
                 <div class="product-cart">
                   <div class="image-product">
                     <img
-                      src="/images/iphone15/iphone15promax/iphone-15-promax-2-ow.png"
+                      src=<%= cart[i].link %>
                       alt=""
                     />
                     <div class="info-image">
-                      APPLE IPHONE 15 PRO MAX 128GB (CTY) - Black - New
+                      <%= cart[i].name %>
                     </div>
                   </div>
                   <!-- End .image-product -->
-                  <div class="costs-product">35.000.000đ</div>
+                  <div class="costs-product"><%= cart[i].price %></div>
                   <div class="quantity-product">
                     <div class="counter">
                       <button class="counter-descrease">
@@ -125,11 +127,13 @@
                       </button>
                     </div>
                   </div>
-                  <div class="total-product">35.000.000đ</div>
+                  <div class="total-product"><%= cart[i].price %></div>
                   <div class="operation">
-                    <i class="fa-solid fa-trash"></i>
+                   <a href = "/delete/<%= cart[i].id %>"> <i class="fa-solid fa-trash"></i></a>
                   </div>
                 </div>
+                
+                <%}%>
               </div>
               <!-- End .container -->
               <div class="final-buy-cart">
