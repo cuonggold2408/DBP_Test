@@ -1,25 +1,30 @@
 const connection = require("../config/database");
 
 let GetProduct = async (req, res) => {
-    let [results, fields] = await connection.query(`select * from DB_ctd.product`);
+    let [results, fields] = await connection.query(`select * from DB_ctd.smartPhone`);
     return results;
 };
 let GetProduct_item = async(id) => {
-    let [results,fields] = await connection.query(`select product.*, product_item.* from product, product_item where product.id = product_item.myid and  product_item.myid = ?`,[id]);
+    let [results,fields] = await connection.query(`select * from DB_ctd.smartPhone where id = ?`,[id]);
     return results;
 };
 let GetCart = async(id) => {
-    let [results,fields] = await connection.query(`select product.*, product_item.* from product, product_item where product.id = product_item.myid and  product_item.myid = ?`,[id])
-  let [results_1, fields_1] = await connection.query(`insert into cart values(?, ?, ?, ?)`, [id, results[0].name, results[0].price_left, results[0].link_image1]);
-  let [results_2, fields_2] = await connection.query(`select cart.* from cart`);
+  let [results_1, fields_1] = await connection.query(`insert into DB_ctd.cart values(?)`,[id]);
+  let [results_2, fields_2] = await connection.query(`select *
+  from DB_ctd.cart
+  inner join DB_ctd.smartPhone
+  where cart.smartphone_id = smartPhone.id;`);
   return results_2;
 };
 let getDelete = async(id) => {
-    let [results, fields] = await connection.query(`delete from cart where id = ?`, [id]);
+    let [results, fields] = await connection.query(`delete from cart where smartphone_id = ?`, [id]);
     return results;
 };
 let getDeleteAfter = async() => {
-    let [results_2, fields_2] = await connection.query(`select cart.* from cart`);
+    let [results_2, fields_2] = await connection.query(`select *
+    from DB_ctd.cart
+    inner join DB_ctd.smartPhone
+    where cart.smartphone_id = smartPhone.id;`);
     return results_2;
 };
 module.exports = {

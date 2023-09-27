@@ -1,8 +1,6 @@
 const express = require("express");
 const connection = require("../config/database");
 const { GetProduct, GetProduct_item, GetCart, getDelete, getDeleteAfter } = require("../services/crudservice");
-const color = require('../public/js/choose-color/app');
-console.log(color);
 // Export the set object
 
 const getHomepage = async (req, res) => {

@@ -34,7 +34,6 @@ itemWhite.addEventListener("click", function () {
     priceWhite.classList.add("checkedWhite");
   }
 });
-const color = "black";
-module.exports = color;
+
 
 // Làm tính năng đổi giá sản phẩm

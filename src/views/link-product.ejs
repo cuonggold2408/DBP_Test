@@ -68,7 +68,7 @@
           <div class="image">
             <div class="image-1">
               <img
-                src=<%= product_item[0].link_image1 %>
+                src=<%= product_item[0].link_black %>
                 alt="black"
               />
             </div>
@@ -153,7 +153,7 @@
               <h3><%= product_item[0].name %></h3>
             </div>
             <div class="id-product">
-              <p>SKU: <span><%= product_item[0].mso %></span></p>
+              <p>SKU: <span><%= product_item[0].ma_sp %></span></p>
             </div>
             <div class="choose-color">
               <p>Chọn màu để xem giá chi tiết:</p>
@@ -178,8 +178,8 @@
             <div class="costs">
               <h4>Giá bán</h4>
               <div class="box-price checkedBlack price-black">
-                <p class="price-left"><%= product_item[0].price_left %></p>
-                <p class="price-right"><%= product_item[0].price_right %></p>
+                <p class="price-left"><%= product_item[0].price_left_black %></p>
+                <p class="price-right"><%= product_item[0].price_right_black %></p>
               </div>
               <!-- End .box-price -->
               <div class="box-price price-white">
@@ -229,8 +229,8 @@
       </div>
     </section>
     <!-- End .section-product -->
-    <div id = "link1" style = "display: none"><%= product_item[0].link_image1 %></div>
-    <div id = "link2" style = "display: none"><%= product_item[0].link_image2 %></div>
+    <div id = "link1" style = "display: none"><%= product_item[0].link_black %></div>
+    <div id = "link2" style = "display: none"><%= product_item[0].link_white %></div>
     <script src="/js/common/app.js"></script>
     <script src="/js/choose-color/app.js"></script>
   </body>

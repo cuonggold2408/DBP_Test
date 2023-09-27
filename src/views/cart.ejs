@@ -107,7 +107,7 @@
                 <div class="product-cart">
                   <div class="image-product">
                     <img
-                      src=<%= cart[i].link %>
+                      src= <%= cart[i].link %>
                       alt=""
                     />
                     <div class="info-image">
@@ -115,7 +115,7 @@
                     </div>
                   </div>
                   <!-- End .image-product -->
-                  <div class="costs-product"><%= cart[i].price %></div>
+                  <div class="costs-product"><%= cart[i].price_left_black %></div>
                   <div class="quantity-product">
                     <div class="counter">
                       <button class="counter-descrease">
@@ -127,7 +127,7 @@
                       </button>
                     </div>
                   </div>
-                  <div class="total-product"><%= cart[i].price %></div>
+                  <div class="total-product"><%= cart[i].price_left_black %></div>
                   <div class="operation">
                    <a href = "/delete/<%= cart[i].id %>"> <i class="fa-solid fa-trash"></i></a>
                   </div>
