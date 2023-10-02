@@ -10,11 +10,16 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    
     <link
       rel="icon"
       type="images/x-icon"
       href="https://courses.uet.vnu.edu.vn/pluginfile.php/1/theme_lambda/favicon/1695283202/captiveportal-logo2_new.png"
     />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+      />
     <link rel="stylesheet" href="/css/grid.css" />
     <link rel="stylesheet" href="/css/style.css" />
     <title>CTĐ Shop</title>
@@ -36,14 +41,19 @@
           <li><a href="/">Home</a></li>
           <li><a href="#!">Contact</a></li>
           <li><a href="#!">About</a></li>
-          <li><a href="#!">Sign Up</a></li>
+          <li><a href="#!">Log in</a></li>
           <div class="bar"></div>
         </ul>
         <div class="cart">
-          <div class="search">
-            <input type="text" placeholder="What are you looking for?" />
-            <i class="fa-solid fa-heart heart"></i>
-            <i class="fa-solid fa-cart-shopping cart-buy"></i>
+          <div class="input-box">
+            <input type="text" placeholder="Search..." />
+            <span class="search">
+              <i class="uil uil-search search-icon"></i>
+            </span>
+          </div>
+          <div class="icon-cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <div class="quantity-product">1</div>
           </div>
         </div>
       </div>
@@ -219,8 +229,8 @@
                 </div>
                 <!-- End .product-name -->
                 <div class="box-price">
-                  <p class="price-left"><%= product[i].price_left_black %></p>
-                  <p class="price-right"><%= product[i].price_right_black %></p>
+                  <p class="price-left"><%= product[i].price_left %>đ</p>
+                  <p class="price-right"><%= product[i].price_right %>đ</p>
                 </div>
                 <!-- End .box-price -->
                 <div class="guarantee">
@@ -270,8 +280,8 @@
                   </div>
                   <!-- End .product-name -->
                   <div class="box-price">
-                    <p class="price-left"><%= product[i].price_left_black %></p>
-                    <p class="price-right"><%= product[i].price_right_black %></p>
+                    <p class="price-left"><%= product[i].price_left %>đ</p>
+                    <p class="price-right"><%= product[i].price_right %>đ</p>
                   </div>
                   <!-- End .box-price -->
                   <div class="guarantee ">
@@ -302,6 +312,8 @@
       </div>
     </main>
     <!-- End .main -->
+    <button id="scrollTopBtn" class="scroll-top-btn">Top</button>
+
     <script src="/js/carousel/app.js"></script>
     <script src="/js/common/app.js"></script>
   </body>

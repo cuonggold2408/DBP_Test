@@ -11,6 +11,10 @@
       referrerpolicy="no-referrer"
     />
     <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+      />
+    <link
       rel="icon"
       type="image/x-icon"
       href="https://courses.uet.vnu.edu.vn/pluginfile.php/1/theme_lambda/favicon/1695283202/captiveportal-logo2_new.png"
@@ -35,14 +39,19 @@
           <li><a href="/">Home</a></li>
           <li><a href="#!">Contact</a></li>
           <li><a href="#!">About</a></li>
-          <li><a href="#!">Sign Up</a></li>
+          <li><a href="#!">Log in</a></li>
           <div class="bar"></div>
         </ul>
         <div class="cart">
-          <div class="search">
-            <input type="text" placeholder="What are you looking for?" />
-            <i class="fa-solid fa-heart heart"></i>
-            <i class="fa-solid fa-cart-shopping cart-buy"></i>
+          <div class="input-box">
+            <input type="text" placeholder="Search..." />
+            <span class="search">
+              <i class="uil uil-search search-icon"></i>
+            </span>
+          </div>
+          <div class="icon-cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <div class="quantity-product">1</div>
           </div>
         </div>
       </div>
@@ -68,7 +77,7 @@
           <div class="image">
             <div class="image-1">
               <img
-                src=<%= product_item[0].link_black %>
+                src=<%= product_item[0].link %>
                 alt="black"
               />
             </div>
@@ -159,7 +168,7 @@
               <p>Chọn màu để xem giá chi tiết:</p>
             </div>
             <!-- End .choose-color -->
-            <div class="list-color">
+            <!-- <div class="list-color">
               <div class="item-black check-choose">
                 <span class="color-black">Màu đen</span>
                 <div class="icon-check-black show-item-check-black">
@@ -172,19 +181,27 @@
                   <i class="fa-solid fa-circle-check"></i>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- End .list-color -->
+
+            <form action = "/getColor/<%= product_item[0].id %>" method="post" class="form">
+              <select name="color" class="select-color">
+                <option selected value="black" class="black-option">Màu đen</option>
+                <option  value="white" class="white-option" >Màu trắng</option>
+              </select>
+              <button class="btn-submit-color" type="submit">Confirm</button>
+            </form>
 
             <div class="costs">
               <h4>Giá bán</h4>
               <div class="box-price checkedBlack price-black">
-                <p class="price-left"><%= product_item[0].price_left_black %></p>
-                <p class="price-right"><%= product_item[0].price_right_black %></p>
+                <p class="price-left"><%= product_item[0].price_left %><span style="font-size: 26px;">đ</span></p>
+                <p class="price-right"><%= product_item[0].price_right %><span style="font-size: 13px;">đ</span></p>
               </div>
               <!-- End .box-price -->
               <div class="box-price price-white">
-                <p class="price-left"><%= product_item[0].price_left_white %> </p>
-                <p class="price-right"><%= product_item[0].price_right_white %></p>
+                <p class="price-left"><%= product_item[0].price_white %><span style="font-size: 26px;">đ</span></p>
+                <p class="price-right"><%= product_item[0].price_white %><span style="font-size: 13px;">đ</span></p>
               </div>
               <!-- End .box-price -->
             </div>
@@ -229,9 +246,9 @@
       </div>
     </section>
     <!-- End .section-product -->
-    <div id = "link1" style = "display: none"><%= product_item[0].link_black %></div>
+    <div id = "link1" style = "display: none"><%= product_item[0].link %></div>
     <div id = "link2" style = "display: none"><%= product_item[0].link_white %></div>
-    <script src="/js/common/app.js"></script>
+
     <script src="/js/choose-color/app.js"></script>
   </body>
 </html>

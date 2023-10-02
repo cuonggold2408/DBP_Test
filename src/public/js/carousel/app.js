@@ -141,3 +141,29 @@ carousel.addEventListener("mouseleave", function () {
   prev.classList.remove("appear");
   next.classList.remove("appear");
 });
+
+function autoNext() {
+  if (index < items.length - 1) {
+    position -= itemWidth;
+    index++;
+  } else {
+    // Khi tới ảnh cuối cùng, reset lại vị trí và index
+    position = 0;
+    index = 0;
+  }
+  carouselInner.style.transition = "transform 0.3s linear";
+  carouselInner.style.transform = `translateX(${position}px)`;
+
+  [...dot].forEach((element) => element.classList.remove("active"));
+  dot[index].classList.add("active");
+}
+
+var autoSlideInterval = setInterval(autoNext, 2000);
+
+carousel.addEventListener("mouseenter", function () {
+  clearInterval(autoSlideInterval);
+});
+
+carousel.addEventListener("mouseleave", function () {
+  autoSlideInterval = setInterval(autoNext, 2000);
+});
