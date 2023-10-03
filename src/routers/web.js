@@ -16,6 +16,6 @@ router.get("/ProductDetail/:id", getProductDetail);
 router.get("/cart/:id", getCart1);
 router.get("/cart", getCartAfter);
 router.get("/addToCart/:id", getAddtocart);
-router.get("/delete/:id", deleteProduct);
+router.get("/delete/:id/:color", deleteProduct);
 router.post("/getColor/:id", getColor);
 module.exports = router;

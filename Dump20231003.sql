@@ -25,10 +25,10 @@ DROP TABLE IF EXISTS `Cart`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Cart` (
-  `SmartPhone_id` int(11) DEFAULT NULL,
+  `SmartPhone_id` int(11) NOT NULL,
   `SmartPhone_Quantity` int(11) DEFAULT NULL,
-  `color` varchar(255) DEFAULT NULL,
-  KEY `SmartPhone_id` (`SmartPhone_id`),
+  `color` varchar(255) NOT NULL,
+  PRIMARY KEY (`SmartPhone_id`,`color`),
   CONSTRAINT `Cart_ibfk_1` FOREIGN KEY (`SmartPhone_id`) REFERENCES `SmartPhone` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -39,7 +39,7 @@ CREATE TABLE `Cart` (
 
 LOCK TABLES `Cart` WRITE;
 /*!40000 ALTER TABLE `Cart` DISABLE KEYS */;
-INSERT INTO `Cart` VALUES (3,1,'white');
+INSERT INTO `Cart` VALUES (2,6,'black'),(2,1,'white'),(4,1,''),(7,1,'black'),(8,2,'white'),(9,1,'white'),(10,2,'white');
 /*!40000 ALTER TABLE `Cart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -57,7 +57,7 @@ CREATE TABLE `SmartPhone` (
   `link` varchar(255) DEFAULT NULL,
   `ma_sp` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -107,4 +107,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-02 18:14:40
+-- Dump completed on 2023-10-03 11:50:01
