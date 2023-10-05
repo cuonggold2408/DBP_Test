@@ -124,19 +124,21 @@
                     </div>
                   </div>
                   <!-- End .image-product -->
-                  <div class="costs-product"><%= cart[i].price_left %></div>
+                  <div class="costs-product product-cost"><%= cart[i].price_left %></div>
                   <div class="quantity-product">
                     <div class="counter">
                       <button class="counter-descrease">
                         <i class="fa fa-minus"></i>
                       </button>
-                      <h4 class="counter-number"><%= cart[i].SmartPhone_Quantity %></h4>
+                      <h4 class="counter-number" contenteditable="true"><%= cart[i].SmartPhone_Quantity %></h4>
+                      <div class="phoneID" style = "display: none"> <%= cart[i].SmartPhone_id %> </div>
+                      <div id="phoneID1" style = "display: none"> <%= cart[i].id %> </div>
                       <button class="counter-increase">
                         <i class="fa fa-plus"></i>
                       </button>
                     </div>
                   </div>
-                  <div class="total-product"><%= cart[i].price_left %></div>
+                  <div class="total-product costs-product"><%= cart[i].price_left  %></div>
                   <div class="operation">
                    <a href = "/delete/<%= cart[i].id %>/<%= cart[i].color %>"> <i class="fa-solid fa-trash"></i></a>
                   </div>
@@ -149,7 +151,7 @@
                 <div class="title-final-cart">
                   <div class="text">
                     <span>Tổng cộng: </span>
-                    <span>35.000.000đ</span>
+                    <span class="text-cost">0</span>
                   </div>
                   <button class="buy">Đặt hàng</button>
                 </div>
@@ -162,7 +164,11 @@
       </div>
     </div>
     <!-- End .build-cart -->
+    <button id="scrollTopBtn" class="scroll-top-btn">Top</button>
+
     <script src="/js/counter/app.js"></script>
     <script src="/js/common/app.js"></script>
+    <script src="/js/changeCosts/cost-cart.js"></script>
+    <script src="/js/counter/casio.js"></script>
   </body>
 </html>

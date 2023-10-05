@@ -34,17 +34,33 @@
 // //   }
 // // });
 
-// // Làm tính năng đổi giá sản phẩm
-// const form = document.querySelector(".form");
-// const selectColor = document.querySelector(".select-color");
+var image = document.querySelector(".image-1 img");
+var images = {
+  black: document.getElementById("link1").innerText,
+  white: document.getElementById("link2").innerText,
+};
 
-// form.addEventListener("submit", function (event) {
-//   event.preventDefault();
-//   const selectedColor = selectColor.value;
+// Làm tính năng đổi giá sản phẩm
+let checkColor = document.querySelector("#check-color");
+document.addEventListener("DOMContentLoaded", function () {
+  // Lấy tham chiếu đến trường select và điều kiện kiểm tra
+  var selectElement = document.getElementById("select");
+  var priceBlack = document.getElementById("priceBlack");
+  var priceWhite = document.getElementById("priceWhite");
+  //   var color = "<%= color %>";
+  let color = checkColor.innerText;
 
-//   if (selectedColor === "black") {
-//     console.log("Màu đen đã được chọn");
-//   } else if (selectedColor === "white") {
-//     console.log("Màu trắng đã được chọn");
-//   }
-// });
+  if (color === "black") {
+    selectElement.querySelector('option[value="black"]').selected = true;
+    selectElement.querySelector('option[value="white"]').selected = false;
+    image.src = images.black;
+    priceBlack.style.display = "flex";
+    priceWhite.style.display = "none";
+  } else {
+    selectElement.querySelector('option[value="black"]').selected = false;
+    selectElement.querySelector('option[value="white"]').selected = true;
+    image.src = images.white;
+    priceBlack.style.display = "none";
+    priceWhite.style.display = "flex";
+  }
+});

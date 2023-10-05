@@ -21,6 +21,7 @@
     />
     <link rel="stylesheet" href="/css/grid.css" />
     <link rel="stylesheet" href="/css/style.css" />
+
     <title><%= product_item[0].name_detail %></title>
   </head>
   <body>
@@ -168,25 +169,12 @@
               <p>Chọn màu để xem giá chi tiết:</p>
             </div>
             <!-- End .choose-color -->
-            <!-- <div class="list-color">
-              <div class="item-black check-choose">
-                <span class="color-black">Màu đen</span>
-                <div class="icon-check-black show-item-check-black">
-                  <i class="fa-solid fa-circle-check"></i>
-                </div>
-              </div>
-              <div class="item-white">
-                <span class="color-white">Màu trắng</span>
-                <div class="icon-check-white">
-                  <i class="fa-solid fa-circle-check"></i>
-                </div>
-              </div>
-            </div> -->
+            
             <!-- End .list-color -->
 
             <form action = "/getColor/<%= product_item[0].id %>" method="post" class="form">
-              <select name="color" class="select-color">
-                <option selected value="black" class="black-option">Màu đen</option>
+              <select name="color" class="select-color" id="select">
+                <option  value="black" class="black-option">Màu đen</option>
                 <option  value="white" class="white-option" >Màu trắng</option>
               </select>
               <button class="btn-submit-color" type="submit">Confirm</button>
@@ -194,14 +182,14 @@
 
             <div class="costs">
               <h4>Giá bán</h4>
-              <div class="box-price checkedBlack price-black">
-                <p class="price-left"><%= product_item[0].price_left %><span style="font-size: 26px;">đ</span></p>
-                <p class="price-right"><%= product_item[0].price_right %><span style="font-size: 13px;">đ</span></p>
+              <div class="box-price checkedBlack price-black" id="priceBlack">
+                <p class="price-left"><%= product_item[0].price_left %></p>
+                <p class="price-right"><%= product_item[0].price_right %></p>
               </div>
               <!-- End .box-price -->
-              <div class="box-price price-white">
-                <p class="price-left"><%= product_item[0].price_white %><span style="font-size: 26px;">đ</span></p>
-                <p class="price-right"><%= product_item[0].price_white %><span style="font-size: 13px;">đ</span></p>
+              <div class="box-price checkedWhite price-white" id="priceWhite">
+                <p class="price-left"><%= product_item[0].left_white %></p>
+                <p class="price-right"><%= product_item[0].right_white %></p>
               </div>
               <!-- End .box-price -->
             </div>
@@ -246,9 +234,12 @@
       </div>
     </section>
     <!-- End .section-product -->
+    <button id="scrollTopBtn" class="scroll-top-btn">Top</button>
+
     <div id = "link1" style = "display: none"><%= product_item[0].link %></div>
     <div id = "link2" style = "display: none"><%= product_item[0].link_white %></div>
-
+    <div id = "check-color" style = "display: none"><%= color %></div>
     <script src="/js/choose-color/app.js"></script>
+    <script src="/js/changeCosts/cost.js"></script>
   </body>
 </html>

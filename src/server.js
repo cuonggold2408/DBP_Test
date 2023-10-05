@@ -1,6 +1,7 @@
 // Thu vien can thiet express
 require("dotenv").config();
 const express = require("express");
+const bodyParser = require("body-parser");
 const path = require("path");
 const configViewEngine = require("./config/viewEngine.js");
 const Router = require("./routers/web.js");

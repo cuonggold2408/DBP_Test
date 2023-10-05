@@ -21,6 +21,7 @@ let GetProduct_item = async (id) => {
   );
   return results;
 };
+
 let GetCart = async (id, color) => {
   let [results_1, fields_1] = await connection.query(
     `INSERT INTO Cart (SmartPhone_id, SmartPhone_Quantity,color)
@@ -28,7 +29,8 @@ let GetCart = async (id, color) => {
     ON DUPLICATE KEY UPDATE SmartPhone_Quantity = SmartPhone_Quantity + 1;`,
     [id, color]
   );
-  let [results_2, fields_2] = await connection.query(`select SmartPhone.name, SmartPhone_Detail.link, SmartPhone_Detail.price_left, SmartPhone.id, Cart.color,Cart.SmartPhone_Quantity
+  let [results_2, fields_2] =
+    await connection.query(`select SmartPhone.name, SmartPhone_Detail.link, SmartPhone_Detail.price_left, SmartPhone.id, Cart.color,Cart.SmartPhone_Quantity
   from (Cart
   inner join SmartPhone on SmartPhone.id = Cart.SmartPhone_id)
   inner join SmartPhone_Detail on SmartPhone_Detail.color = Cart.color and SmartPhone_Detail.id = Cart.SmartPhone_id;`);
@@ -42,13 +44,14 @@ let getDelete = async (id, color) => {
   return results;
 };
 let getDeleteAfter = async () => {
-  let [results_2, fields_2] = await connection.query(`select SmartPhone.name, SmartPhone_Detail.link, SmartPhone_Detail.price_left, SmartPhone.id, Cart.color, Cart.SmartPhone_Quantity
+  let [results_2, fields_2] =
+    await connection.query(`select SmartPhone.name, SmartPhone_Detail.link, SmartPhone_Detail.price_left, SmartPhone.id, Cart.color, Cart.SmartPhone_Quantity
   from (Cart
   inner join SmartPhone on SmartPhone.id = Cart.SmartPhone_id)
   inner join SmartPhone_Detail on SmartPhone_Detail.color = Cart.color and SmartPhone_Detail.id = Cart.SmartPhone_id;`);
   return results_2;
 };
-let getColor1 = async(id) => {
+let getColor1 = async (id) => {
   let [results, fields] = await connection.query(
     `select a.* , SmartPhone_Detail.price_left as left_white, SmartPhone_Detail.price_right as right_white, SmartPhone_Detail.link as link_white
     from SmartPhone_Detail, (select SmartPhone.id,SmartPhone.name, SmartPhone.name_detail, SmartPhone.ma_sp, SmartPhone_Detail.price_left, SmartPhone_Detail.price_right,SmartPhone_Detail.link
