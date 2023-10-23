@@ -60,6 +60,10 @@ const getColor = async (req, res) => {
   res.redirect(`/ProductDetail/${id}`);
 };
 
+const getSellProduct = async (req, res) => {
+  res.render("sell.ejs");
+};
+
 module.exports = {
   getHomepage,
   getProductDetail,
@@ -68,4 +72,5 @@ module.exports = {
   getCartAfter,
   getAddtocart,
   getColor,
+  getSellProduct,
 };
