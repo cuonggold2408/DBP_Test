@@ -31,19 +31,7 @@
 //     // Get
 //     let savedQuantity = localStorage.getItem(productID);
 
-//     fetch("/save-to-database", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({
-//         value: document.getElementById("phoneID1").innerText,
-//       }),
-//     })
-//       .then((response) => response.json())
-//       .then((data) => console.log(data))
-//       .catch((error) => console.error("Error:", error));
-//   });
+  
 
 //   textCost.innerText = formatNumber(updateCost);
 
@@ -104,6 +92,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const decreaseButtons = document.querySelectorAll(".counter-descrease");
   const increaseButtons = document.querySelectorAll(".counter-increase");
   const counters = document.querySelectorAll(".counter-number");
+  const id = document.querySelectorAll("#phoneID1");
+  const color = document.querySelectorAll("#phoneID2");
   const costs = document.querySelectorAll(".product-cost");
   const totals = document.querySelectorAll(".total-product");
   const textCost = document.querySelector(".text-cost");
@@ -119,6 +109,18 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCost += total;
     let productIDs = document.querySelectorAll(".phoneID");
     let productID = productIDs[index].innerText;
+    // fetch("/save-to-database", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     value: document.getElementById("quantity").innerText,
+    //   }),
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => console.log(data))
+    //   .catch((error) => console.error("Error:", error));
   });
 
   textCost.innerText = formatNumber(updateCost);
@@ -146,6 +148,21 @@ document.addEventListener("DOMContentLoaded", function () {
   decreaseButtons.forEach((button, index) => {
     button.addEventListener("click", function () {
       let quantity = parseNumber(counters[index].innerText);
+      console.log(quantity+1);
+      console.log(id[index].innerText);
+      console.log(color[index].innerText);
+      const data = {
+        value: quantity - 1,
+        id: parseNumber(id[index].innerText),
+        color:color[index].innerText
+      };
+      fetch("/save-to-database", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
       if (quantity > 1) {
         counters[index].innerText = (quantity - 1).toString();
         updateTotalForProduct(index);
@@ -156,6 +173,21 @@ document.addEventListener("DOMContentLoaded", function () {
   increaseButtons.forEach((button, index) => {
     button.addEventListener("click", function () {
       let quantity = parseNumber(counters[index].innerText);
+      console.log(quantity+1);
+      console.log(id[index].innerText);
+      console.log(color[index].innerText);
+      const data = {
+        value: quantity + 1,
+        id: parseNumber(id[index].innerText),
+        color: color[index].innerText
+      };
+      fetch("/save-to-database", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
       counters[index].innerText = (quantity + 1).toString();
       updateTotalForProduct(index);
     });

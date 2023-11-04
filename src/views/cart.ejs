@@ -130,9 +130,10 @@
                       <button class="counter-descrease">
                         <i class="fa fa-minus"></i>
                       </button>
-                      <h4 class="counter-number" contenteditable="true"><%= cart[i].SmartPhone_Quantity %></h4>
+                      <h4 id = "quantity" class="counter-number" contenteditable="true"><%= cart[i].SmartPhone_Quantity %></h4>
                       <div class="phoneID" style = "display: none"> <%= cart[i].SmartPhone_id %> </div>
                       <div id="phoneID1" style = "display: none"> <%= cart[i].id %> </div>
+                      <div id="phoneID2" style = "display: none"><%= cart[i].color %></div>
                       <button class="counter-increase">
                         <i class="fa fa-plus"></i>
                       </button>

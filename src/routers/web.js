@@ -21,11 +21,15 @@ router.get("/addToCart/:id", getAddtocart);
 router.get("/delete/:id/:color", deleteProduct);
 router.get("/sell", getSellProduct);
 router.post("/getColor/:id", getColor);
-router.post("/save-to-database", (req, res) => {
-  const value = req.body.value;
-  const query = "INSERT INTO so (id) VALUES (?)";
 
-  connection.query(query, [value], (err, result) => {
+router.post("/save-to-database", (req, res) => {
+  const {value, id, color} = req.body; 
+  console.log(value);
+  console.log(id);
+  console.log(color);
+  const query = "update Cart set SmartPhone_Quantity = ? where SmartPhone_id = ? and color = ?";
+
+  connection.query(query, [value, id, color], (err, result) => {
     if (err) {
       console.error(err);
       return res.status(500).send(err);

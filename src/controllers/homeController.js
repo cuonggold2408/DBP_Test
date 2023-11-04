@@ -8,6 +8,7 @@ const {
   getDelete,
   getDeleteAfter,
   getColor1,
+  getSell,
 } = require("../services/crudservice");
 
 // Export the set object
@@ -61,7 +62,9 @@ const getColor = async (req, res) => {
 };
 
 const getSellProduct = async (req, res) => {
-  res.render("sell.ejs");
+  let results = await getSell();
+  console.log(results);
+  return res.render("sell.ejs", { cart: results });
 };
 
 module.exports = {

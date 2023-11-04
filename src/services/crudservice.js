@@ -64,6 +64,12 @@ let getColor1 = async (id) => {
   );
   return results;
 };
+let getSell = async () => {
+  let [results, fields] = await connection.query(`select sd.link, sd.price_left, sd.price_right, ca.SmartPhone_Quantity, tmp.name, sd.id, tmp.name_detail
+    from Cart as ca, SmartPhone_Detail as sd, SmartPhone as tmp
+    where ca.SmartPhone_id = sd.id and ca.color = sd.color and tmp.id = ca.SmartPhone_id;`);
+    return results;
+}
 module.exports = {
   GetProduct,
   GetProduct_item,
@@ -71,4 +77,5 @@ module.exports = {
   getDelete,
   getDeleteAfter,
   getColor1,
+  getSell,
 };

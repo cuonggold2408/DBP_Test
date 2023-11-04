@@ -50,8 +50,8 @@
             </span>
           </div>
           <div class="icon-cart">
-            <i class="fa-solid fa-cart-shopping"></i>
-            <div class="quantity-product">1</div>
+            <a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+            <div class="quantity-product"><%= cart.length  %></div>
           </div>
         </div>
       </div>
@@ -65,32 +65,36 @@
           <span>Thông tin</span>
         </div>
         <!-- End .header-payment -->
-        <div class="list-product">
-          <div class="product">
-            <div class="image">
-              <img
-                src="/images/iphone-15-pro-max_2__5.webp"
-                alt="iphone15promax"
-              />
-            </div>
-            <!-- End .image -->
-            <div class="info-image">
-              <p>iPhone 15 Pro Max 128GB | Chính hãng VN/A-Vàng</p>
-              <div class="cost-quantity">
-                <div class="cost">
-                  <div class="cost-real">23.990.000đ</div>
-                  <div class="cost-discount">27.990.000đ</div>
-                </div>
-                <!-- End .cost -->
-                <div class="quantity">Số lượng: 1</div>
-                <!-- End .quantity -->
+        <% for(let i = 0; i < cart.length; i++)
+                {%>
+          
+          <div class="list-product">
+            <div class="product">
+              <div class="image">
+                <img
+                  src= <%= cart[i].link %>
+                  alt=""
+                />
               </div>
+              <!-- End .image -->
+              <div class="info-image">
+                <p><%= cart[i].name %></p>
+                <div class="cost-quantity">
+                  <div class="cost">
+                    <div class="cost-real"><%= cart[i].price_left %>đ</div>
+                    <div class="cost-discount"><%= cart[i].price_right %>đ</div>
+                  </div>
+                  <!-- End .cost -->
+                  <div class="quantity">Số lượng: <%= cart[i].SmartPhone_Quantity %></div>
+                  <!-- End .quantity -->
+                </div>
+              </div>
+              <!-- End .info-image -->
             </div>
-            <!-- End .info-image -->
+            <!-- End .product -->
           </div>
-          <!-- End .product -->
-        </div>
-        <!-- End .list-product -->
+          <!-- End .list-product -->
+          <%}%>
         <div class="customer">
           <h3>THÔNG TIN KHÁCH HÀNG</h3>
           <div class="info-customer">
