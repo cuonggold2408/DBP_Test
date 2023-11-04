@@ -70,6 +70,10 @@ let getSell = async () => {
     where ca.SmartPhone_id = sd.id and ca.color = sd.color and tmp.id = ca.SmartPhone_id;`);
     return results;
 }
+let getAllCustomer = async () => {
+  let [results, fields] = await connection.query(`select id, email, fullname, password from Customer`);
+  return results;
+}
 module.exports = {
   GetProduct,
   GetProduct_item,
@@ -78,4 +82,5 @@ module.exports = {
   getDeleteAfter,
   getColor1,
   getSell,
+  getAllCustomer,
 };

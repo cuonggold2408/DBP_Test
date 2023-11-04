@@ -9,6 +9,7 @@ const {
   getDeleteAfter,
   getColor1,
   getSell,
+  getAllCustomer,
 } = require("../services/crudservice");
 
 // Export the set object
@@ -17,9 +18,11 @@ const getHomepage = async (req, res) => {
   color = "black";
   let results = await GetProduct();
   let results1 = await getDeleteAfter();
+  let results2 = await getAllCustomer();
   return res.render("home.ejs", {
     product: results,
     results1: results1,
+    customer: results2,
   });
 };
 const getProductDetail = async (req, res) => {
@@ -66,6 +69,13 @@ const getSellProduct = async (req, res) => {
   console.log(results);
   return res.render("sell.ejs", { cart: results });
 };
+const getCustomer = async (req, res) => {
+  const {name, email, password} = req.body; 
+  let [results, fields] = await connection.query(
+    `insert into Customer (email,fullname,password) values (?, ?, ?)`,
+    [email, name, password]
+  );
+}
 
 module.exports = {
   getHomepage,
@@ -76,4 +86,5 @@ module.exports = {
   getAddtocart,
   getColor,
   getSellProduct,
+  getCustomer
 };

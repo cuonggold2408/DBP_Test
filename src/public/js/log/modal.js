@@ -18,6 +18,8 @@ var errEmailRegister = document.querySelector("#form-2 .err-email");
 var inputPasswordRegister = document.querySelector("#form-2 #password");
 var errPasswordRegister = document.querySelector("#form-2 .err-pass");
 
+var btnSubmitRegister = document.querySelector(".register-login");
+
 //An hien modal.
 btnModal.addEventListener("click", function () {
   modal.classList.add("show");
@@ -144,4 +146,43 @@ btnLogin.addEventListener("click", function () {
     errPasswordRegister.innerText = "";
     inputPasswordRegister.parentElement.classList.remove("invalid");
   }
+});
+
+btnSubmitRegister.addEventListener("click", function () {
+  var fullName = inputFullNameRegister.value.trim();
+  var email = inputEmailRegister.value.trim();
+  var password = inputPasswordRegister.value.trim();
+
+  if (fullName === "") {
+    errFullNameRegister.innerText = "Full name is required.";
+    return;
+  }
+  if (email === "") {
+    errEmailRegister.innerText = "Email is required.";
+    return;
+  }
+  if (password === "") {
+    errPasswordRegister.innerText = "Password is required.";
+    return;
+  }
+
+  errFullNameRegister.innerText = "";
+  errEmailRegister.innerText = "";
+  errPasswordRegister.innerText = "";
+
+  const data = {
+  name: fullName,
+  email: email,
+  password: password
+};
+console.log(inputFullNameRegister.value);
+console.log(inputEmailRegister.value);
+console.log(inputPasswordRegister.value);
+fetch("/save-to-database-customer", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(data),
+})
 });

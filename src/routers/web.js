@@ -10,6 +10,7 @@ const {
   getAddtocart,
   getColor,
   getSellProduct,
+  getCustomer,
 } = require("../controllers/homeController");
 const router = express.Router();
 
@@ -37,4 +38,5 @@ router.post("/save-to-database", (req, res) => {
     return res.status(200).send("Data saved successfully");
   });
 });
+router.post("/save-to-database-customer", getCustomer);
 module.exports = router;

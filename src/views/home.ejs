@@ -438,6 +438,15 @@
       </div>
     </main>
     <!-- End .main -->
+    <%    for(let i = 0; i < customer.length; i++) 
+    {%> 
+      
+      <div id="id" style = "display: none"> <%= customer.id %> </div>
+      <div id="email" style = "display: none"> <%= customer.email %> </div>
+      <div id="fullName" style = "display: none"> <%= customer.fullname %> </div>
+      <div id="password" style = "display: none"> <%= customer.password %> </div>
+      
+    <%}%>
     <button id="scrollTopBtn" class="scroll-top-btn">Top</button>
 
     <script src="/js/carousel/app.js"></script>

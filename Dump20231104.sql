@@ -39,8 +39,34 @@ CREATE TABLE `Cart` (
 
 LOCK TABLES `Cart` WRITE;
 /*!40000 ALTER TABLE `Cart` DISABLE KEYS */;
-INSERT INTO `Cart` VALUES (2,6,'black'),(2,1,'white'),(4,1,''),(7,1,'black'),(8,2,'white'),(9,1,'white'),(10,2,'white');
+INSERT INTO `Cart` VALUES (2,8,'black'),(3,1,'black'),(4,1,''),(8,1,'black'),(9,5,'black'),(10,1,'white');
 /*!40000 ALTER TABLE `Cart` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Customer`
+--
+
+DROP TABLE IF EXISTS `Customer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Customer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) DEFAULT NULL,
+  `fullname` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Customer`
+--
+
+LOCK TABLES `Customer` WRITE;
+/*!40000 ALTER TABLE `Customer` DISABLE KEYS */;
+INSERT INTO `Customer` VALUES (1,'nguyenvantuyentha1975@gmail.com','Nguyễn Thành Đạt','4545465465465'),(2,'nguyenvantuyentha1975@gmail.com','Nguyễn Thành Đạt','45564654'),(3,'nguyenvantuyentha1975@gmail.com','Nguyễn Thành Đạt','45564654'),(4,'nguyenvantuyentha1975@gmail.com','Nguyễn Thành Đạt','5757785');
+/*!40000 ALTER TABLE `Customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -97,6 +123,30 @@ LOCK TABLES `SmartPhone_Detail` WRITE;
 INSERT INTO `SmartPhone_Detail` VALUES (1,'black','/images/iphone15/iphone15promax/iphone15promaxBlack.webp','38990000','37990000'),(1,'white','/images/iphone15/iphone15promax/iphone15promaxWhite.webp','37490000','37990000'),(2,'black','/images/samsungs23/ultra/s23-ultra-black.webp','31990000','22990000'),(2,'white','/images/samsungs23/ultra/s23-ultra-white.webp','31290000','22590000'),(3,'black','/images/iphone14/promax/ip_14_promax_black.webp','29990000','26790000'),(3,'white','/images/iphone14/promax/ip_14_promax_white.webp','29690000','26790000'),(4,'black','/images/xiaomi_note12/xiaomi_note12_black.webp','5790000','4990000'),(4,'white','/images/xiaomi_note12/xiaomi_note12_white.webp','5290000','4970000'),(5,'black','/images/oppo_findN2/oppo_findN2_black.webp','19990000','18990000'),(5,'white','/images/oppo_findN2/oppo_findN2_white.webp','19990000','18990000'),(6,'black','/images/iphone12/iphone12_black.webp','15990000','13790000'),(6,'white','/images/iphone12/iphone12_white.webp','15290000','13790000'),(7,'black','/images/xiaomi_note12/xiaomi_note12_black.webp','4990000','4290000'),(7,'white','/images/xiaomi_note12/xiaomi_note12_white.webp','4390000','4090000'),(8,'black','/images/iphone11/iphone11_black.webp','11990000','10490000'),(8,'white','/images/iphone11/iphone11_white.webp','11090000','10550000'),(9,'black','/images/samsung_zfold5/samsung_zfold5_black.webp','40990000','33990000'),(9,'white','/images/samsung_zfold5/samsung_zfold5_white.webp','40790000','33790000'),(10,'black','/images/iphone14/plus/iphone14_black.webp','24990000','21290000'),(10,'white','/images/iphone14/plus/iphone14_white.webp','24690000','21290000');
 /*!40000 ALTER TABLE `SmartPhone_Detail` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `so`
+--
+
+DROP TABLE IF EXISTS `so`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `so` (
+  `id` int(11) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  `color` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `so`
+--
+
+LOCK TABLES `so` WRITE;
+/*!40000 ALTER TABLE `so` DISABLE KEYS */;
+INSERT INTO `so` VALUES (2,5,NULL),(8,2,NULL),(10,2,NULL),(10,3,NULL),(10,2,' white ');
+/*!40000 ALTER TABLE `so` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -107,4 +157,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-03 11:50:01
+-- Dump completed on 2023-11-04 17:35:02
