@@ -22,13 +22,14 @@ let GetProduct_item = async (id) => {
   return results;
 };
 
-let GetCart = async (id, color) => {
+let GetCart = async (id, color, id_Customer) => {
   let [results_1, fields_1] = await connection.query(
-    `INSERT INTO Cart (SmartPhone_id, SmartPhone_Quantity,color)
-    SELECT ?, 1, ?
+    `INSERT INTO Cart (SmartPhone_id, SmartPhone_Quantity,color, id_Customer)
+    SELECT ?, 1, ?, ?
     ON DUPLICATE KEY UPDATE SmartPhone_Quantity = SmartPhone_Quantity + 1;`,
-    [id, color]
+    [id, color, id_Customer],
   );
+  // xong
   let [results_2, fields_2] =
     await connection.query(`select SmartPhone.name, SmartPhone_Detail.link, SmartPhone_Detail.price_left, SmartPhone.id, Cart.color,Cart.SmartPhone_Quantity
   from (Cart
@@ -36,19 +37,20 @@ let GetCart = async (id, color) => {
   inner join SmartPhone_Detail on SmartPhone_Detail.color = Cart.color and SmartPhone_Detail.id = Cart.SmartPhone_id;`);
   return results_2;
 };
-let getDelete = async (id, color) => {
+let getDelete = async (id, color, id_Customer) => {
   let [results, fields] = await connection.query(
-    `delete from Cart where SmartPhone_id = ? and color = ?;`,
-    [id, color]
+    `delete from Cart where SmartPhone_id = ? and color = ? and id_Customer = ?;`,
+    [id, color, id_Customer]
   );
   return results;
 };
-let getDeleteAfter = async () => {
+let getDeleteAfter = async (id_Customer) => {
   let [results_2, fields_2] =
     await connection.query(`select SmartPhone.name, SmartPhone_Detail.link, SmartPhone_Detail.price_left, SmartPhone.id, Cart.color, Cart.SmartPhone_Quantity
   from (Cart
   inner join SmartPhone on SmartPhone.id = Cart.SmartPhone_id)
-  inner join SmartPhone_Detail on SmartPhone_Detail.color = Cart.color and SmartPhone_Detail.id = Cart.SmartPhone_id;`);
+  inner join SmartPhone_Detail on SmartPhone_Detail.color = Cart.color and SmartPhone_Detail.id = Cart.SmartPhone_id
+  where Cart.id_Customer = ?;`, [id_Customer]);
   return results_2;
 };
 let getColor1 = async (id) => {
@@ -64,10 +66,17 @@ let getColor1 = async (id) => {
   );
   return results;
 };
-let getSell = async () => {
+let getSell = async (id_Customer) => {
   let [results, fields] = await connection.query(`select sd.link, sd.price_left, sd.price_right, ca.SmartPhone_Quantity, tmp.name, sd.id, tmp.name_detail
     from Cart as ca, SmartPhone_Detail as sd, SmartPhone as tmp
-    where ca.SmartPhone_id = sd.id and ca.color = sd.color and tmp.id = ca.SmartPhone_id;`);
+    where ca.SmartPhone_id = sd.id and ca.color = sd.color and tmp.id = ca.SmartPhone_id and ca.id_Customer = ?;`, [id_Customer]);
+    return results;
+}
+let getSum = async (id_Customer) => {
+  let [results, fields] = await connection.query(`select sum(Cart.price_left * Cart.SmartPhone_Quantity) as sum
+  from (select sd.link, sd.price_left, sd.price_right, ca.SmartPhone_Quantity, tmp.name, sd.id, tmp.name_detail
+  from Cart as ca, SmartPhone_Detail as sd, SmartPhone as tmp
+  where ca.SmartPhone_id = sd.id and ca.color = sd.color and tmp.id = ca.SmartPhone_id and ca.id_Customer = ?) as Cart;`, [id_Customer]);
     return results;
 }
 let getAllCustomer = async () => {
@@ -83,4 +92,5 @@ module.exports = {
   getColor1,
   getSell,
   getAllCustomer,
+  getSum
 };

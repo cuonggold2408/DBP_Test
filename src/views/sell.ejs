@@ -163,7 +163,7 @@
             <!-- End .quantity -->
             <div class="total-money">
               <span>Tiền hàng</span>
-              <span class="money">4.090.000đ</span>
+              <span class="money"><%= product[0].sum %>đ</span>
             </div>
             <!-- End .total-money -->
             <div class="fee-transport">
@@ -173,7 +173,7 @@
             <!-- End .fee-transport -->
             <div class="final-total">
               <span>Tổng tiền</span>
-              <span class="final-money">4.090.000đ</span>
+              <span class="final-money"><%= product[0].sum %>đ</span>
             </div>
           </div>
         </div>
@@ -181,7 +181,7 @@
         <div class="pay">
           <div class="pay-cost">
             <span>Tổng tiền tạm tính: </span>
-            <span>4.090.000đ</span>
+            <span><%= product[0].sum %>đ</span>
           </div>
           <div class="payment">
             <button class="btn-pay">Thanh toán</button>

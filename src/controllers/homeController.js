@@ -10,14 +10,16 @@ const {
   getColor1,
   getSell,
   getAllCustomer,
+  getSum
 } = require("../services/crudservice");
 
 // Export the set object
 let color = "black";
+let id_Customer ;
 const getHomepage = async (req, res) => {
   color = "black";
   let results = await GetProduct();
-  let results1 = await getDeleteAfter();
+  let results1 = await getDeleteAfter(id_Customer);
   let results2 = await getAllCustomer();
   return res.render("home.ejs", {
     product: results,
@@ -28,7 +30,7 @@ const getHomepage = async (req, res) => {
 const getProductDetail = async (req, res) => {
   let id = req.params.id;
   let results = await GetProduct_item(id);
-  let results1 = await getDeleteAfter();
+  let results1 = await getDeleteAfter(id_Customer);
   return res.render("link-product.ejs", {
     product_item: results,
     results1: results1,
@@ -38,23 +40,23 @@ const getProductDetail = async (req, res) => {
 
 const getCart1 = async (req, res) => {
   let id = req.params.id;
-  let results = await GetCart(id, color);
+  let results = await GetCart(id, color, id_Customer);
 
   res.redirect("/cart");
 };
 const deleteProduct = async (req, res) => {
   let id = req.params.id;
   let color1 = req.params.color;
-  let results = await getDelete(id, color1);
+  let results = await getDelete(id, color1, id_Customer);
   res.redirect("/cart");
 };
 const getCartAfter = async (req, res) => {
-  let results = await getDeleteAfter();
+  let results = await getDeleteAfter(id_Customer);
   return res.render("cart.ejs", { cart: results });
 };
 const getAddtocart = async (req, res) => {
   let id = req.params.id;
-  let results_1 = await GetCart(id, color);
+  let results_1 = await GetCart(id, color, id_Customer);
   res.redirect(`/ProductDetail/${id}`);
 };
 const getColor = async (req, res) => {
@@ -65,18 +67,11 @@ const getColor = async (req, res) => {
 };
 
 const getSellProduct = async (req, res) => {
-  let results = await getSell();
+  let results = await getSell(id_Customer);
+  let product = await getSum(id_Customer);
   console.log(results);
-  return res.render("sell.ejs", { cart: results });
+  return res.render("sell.ejs", { cart: results , product: product });
 };
-
-// const getCustomer = async (req, res) => {
-//   const { name, email, password } = req.body;
-//   let [results, fields] = await connection.query(
-//     `insert into Customer (email,fullname,password) values (?, ?, ?)`,
-//     [email, name, password]
-//   );
-// };
 
 const getCustomer = async (req, res) => {
   const { name, email, password } = req.body;
@@ -117,7 +112,8 @@ const checkLoginCredentials = async (req, res) => {
     if (password !== user[0].password) {
       return res.status(401).send("Password is incorrect.");
     }
-    return res.status(200).send("Login successful");
+    id_Customer = user[0].id;
+    res.redirect('http://localhost:8888');
   } catch (err) {
     console.error(err);
     res.status(500).send("Internal Server Error");

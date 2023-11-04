@@ -28,8 +28,8 @@ CREATE TABLE `Cart` (
   `SmartPhone_id` int(11) NOT NULL,
   `SmartPhone_Quantity` int(11) DEFAULT NULL,
   `color` varchar(255) NOT NULL,
-  PRIMARY KEY (`SmartPhone_id`,`color`),
-  CONSTRAINT `Cart_ibfk_1` FOREIGN KEY (`SmartPhone_id`) REFERENCES `SmartPhone` (`id`)
+  `id_Customer` int(11) NOT NULL,
+  PRIMARY KEY (`SmartPhone_id`,`color`,`id_Customer`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -39,7 +39,7 @@ CREATE TABLE `Cart` (
 
 LOCK TABLES `Cart` WRITE;
 /*!40000 ALTER TABLE `Cart` DISABLE KEYS */;
-INSERT INTO `Cart` VALUES (2,8,'black'),(3,1,'black'),(4,1,''),(8,1,'black'),(9,5,'black'),(10,1,'white');
+INSERT INTO `Cart` VALUES (2,4,'black',5),(3,1,'black',5),(4,9,'black',5),(5,1,'black',5),(8,2,'black',5);
 /*!40000 ALTER TABLE `Cart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -56,7 +56,7 @@ CREATE TABLE `Customer` (
   `fullname` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +65,7 @@ CREATE TABLE `Customer` (
 
 LOCK TABLES `Customer` WRITE;
 /*!40000 ALTER TABLE `Customer` DISABLE KEYS */;
-INSERT INTO `Customer` VALUES (1,'nguyenvantuyentha1975@gmail.com','Nguyễn Thành Đạt','4545465465465'),(2,'nguyenvantuyentha1975@gmail.com','Nguyễn Thành Đạt','45564654'),(3,'nguyenvantuyentha1975@gmail.com','Nguyễn Thành Đạt','45564654'),(4,'nguyenvantuyentha1975@gmail.com','Nguyễn Thành Đạt','5757785');
+INSERT INTO `Customer` VALUES (1,'nguyenvantuyentha1975@gmail.com','Nguyễn Thành Đạt','4545465465465'),(2,'nguyenvantuyentha1975@gmail.com','Nguyễn Thành Đạt','45564654'),(3,'nguyenvantuyentha1975@gmail.com','Nguyễn Thành Đạt','45564654'),(4,'nguyenvantuyentha1975@gmail.com','Nguyễn Thành Đạt','5757785'),(5,'tdt.trandinhtuan467@gmail.com','Nguyễn Thành Đạt','123456789'),(6,'vanhvu724@gmail.com','Nguyễn Thành Đạt','123456789');
 /*!40000 ALTER TABLE `Customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -157,4 +157,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-04 17:35:02
+-- Dump completed on 2023-11-05  3:42:41
