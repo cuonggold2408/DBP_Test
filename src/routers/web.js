@@ -11,6 +11,7 @@ const {
   getColor,
   getSellProduct,
   getCustomer,
+  checkLoginCredentials,
 } = require("../controllers/homeController");
 const router = express.Router();
 
@@ -24,11 +25,12 @@ router.get("/sell", getSellProduct);
 router.post("/getColor/:id", getColor);
 
 router.post("/save-to-database", (req, res) => {
-  const {value, id, color} = req.body; 
+  const { value, id, color } = req.body;
   console.log(value);
   console.log(id);
   console.log(color);
-  const query = "update Cart set SmartPhone_Quantity = ? where SmartPhone_id = ? and color = ?";
+  const query =
+    "update Cart set SmartPhone_Quantity = ? where SmartPhone_id = ? and color = ?";
 
   connection.query(query, [value, id, color], (err, result) => {
     if (err) {
@@ -39,4 +41,7 @@ router.post("/save-to-database", (req, res) => {
   });
 });
 router.post("/save-to-database-customer", getCustomer);
+
+router.post("/save-to-database-login", checkLoginCredentials);
+
 module.exports = router;

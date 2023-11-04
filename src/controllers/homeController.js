@@ -69,13 +69,60 @@ const getSellProduct = async (req, res) => {
   console.log(results);
   return res.render("sell.ejs", { cart: results });
 };
+
+// const getCustomer = async (req, res) => {
+//   const { name, email, password } = req.body;
+//   let [results, fields] = await connection.query(
+//     `insert into Customer (email,fullname,password) values (?, ?, ?)`,
+//     [email, name, password]
+//   );
+// };
+
 const getCustomer = async (req, res) => {
-  const {name, email, password} = req.body; 
-  let [results, fields] = await connection.query(
-    `insert into Customer (email,fullname,password) values (?, ?, ?)`,
-    [email, name, password]
-  );
-}
+  const { name, email, password } = req.body;
+
+  try {
+    const [existingCustomer] = await connection.execute(
+      `SELECT email FROM Customer WHERE email = ?`,
+      [email]
+    );
+
+    if (existingCustomer.length > 0) {
+      return res.status(409).send("Email already exists");
+    }
+
+    const [results] = await connection.execute(
+      `INSERT INTO Customer (email, fullname, password) VALUES (?, ?, ?)`,
+      [email, name, password]
+    );
+
+    res.status(201).send("Customer created successfully");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
+};
+
+const checkLoginCredentials = async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const query = `SELECT * FROM Customer WHERE email = ?`;
+    const [user] = await connection.execute(query, [email]);
+
+    if (user.length === 0) {
+      return res.status(401).send("No user found with this email.");
+    }
+
+    if (password !== user[0].password) {
+      return res.status(401).send("Password is incorrect.");
+    }
+    return res.status(200).send("Login successful");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
+};
 
 module.exports = {
   getHomepage,
@@ -86,5 +133,6 @@ module.exports = {
   getAddtocart,
   getColor,
   getSellProduct,
-  getCustomer
+  getCustomer,
+  checkLoginCredentials,
 };

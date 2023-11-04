@@ -16,6 +16,7 @@
       type="images/x-icon"
       href="https://courses.uet.vnu.edu.vn/pluginfile.php/1/theme_lambda/favicon/1695283202/captiveportal-logo2_new.png"
     />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
@@ -438,16 +439,23 @@
       </div>
     </main>
     <!-- End .main -->
+
+    
     <%    for(let i = 0; i < customer.length; i++) 
     {%> 
       
-      <div id="id" style = "display: none"> <%= customer.id %> </div>
-      <div id="email" style = "display: none"> <%= customer.email %> </div>
-      <div id="fullName" style = "display: none"> <%= customer.fullname %> </div>
-      <div id="password" style = "display: none"> <%= customer.password %> </div>
+      <!-- <div id="id-customer" style = "display: none"> <%= customer.id %> </div> -->
+      <div class="email-customer" style = "display: none"> <%= customer.email %> </div>
+      <!-- <div id="fullName-customer" style = "display: none"> <%= customer.fullname %> </div> -->
+      <div class="password-customer" style = "display: none"> <%= customer.password %> </div>
       
     <%}%>
+
+   
+
     <button id="scrollTopBtn" class="scroll-top-btn">Top</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js@1/src/toastify.min.js"></script>
 
     <script src="/js/carousel/app.js"></script>
     <script src="/js/common/app.js"></script>

@@ -20,6 +20,11 @@ var errPasswordRegister = document.querySelector("#form-2 .err-pass");
 
 var btnSubmitRegister = document.querySelector(".register-login");
 
+var btnSubmitLogin = document.querySelector(".submit-login");
+
+var emailCustomer = document.querySelectorAll(".email-customer");
+var passwordCustomer = document.querySelectorAll(".password-customer");
+
 //An hien modal.
 btnModal.addEventListener("click", function () {
   modal.classList.add("show");
@@ -148,7 +153,8 @@ btnLogin.addEventListener("click", function () {
   }
 });
 
-btnSubmitRegister.addEventListener("click", function () {
+btnSubmitRegister.addEventListener("click", async function (e) {
+  e.preventDefault();
   var fullName = inputFullNameRegister.value.trim();
   var email = inputEmailRegister.value.trim();
   var password = inputPasswordRegister.value.trim();
@@ -171,18 +177,140 @@ btnSubmitRegister.addEventListener("click", function () {
   errPasswordRegister.innerText = "";
 
   const data = {
-  name: fullName,
-  email: email,
-  password: password
-};
-console.log(inputFullNameRegister.value);
-console.log(inputEmailRegister.value);
-console.log(inputPasswordRegister.value);
-fetch("/save-to-database-customer", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify(data),
-})
+    name: fullName,
+    email: email,
+    password: password,
+  };
+  console.log(inputFullNameRegister.value);
+  console.log(inputEmailRegister.value);
+  console.log(inputPasswordRegister.value);
+
+  // fetch("/save-to-database-customer", {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify(data),
+  // });
+  try {
+    // Use async/await to send the POST request
+    const response = await fetch("/save-to-database-customer", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      inputFullNameRegister.value = "";
+      inputEmailRegister.value = "";
+      inputPasswordRegister.value = "";
+      Toastify({
+        text: "Đăng kí thành công",
+        duration: 3000,
+        newWindow: true,
+        close: true,
+        gravity: "right",
+        position: "right",
+        stopOnFocus: true,
+        offset: {
+          x: 30,
+          y: 80,
+        },
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+          fontSize: "20px",
+        },
+      }).showToast();
+      console.log("Data saved successfully");
+    } else {
+      Toastify({
+        text: "Đăng kí thất bại, tài khoản đã tồn tại",
+        duration: 3000,
+        newWindow: true,
+        close: true,
+        gravity: "right",
+        position: "right",
+        stopOnFocus: true,
+        offset: {
+          x: 30,
+          y: 80,
+        },
+        style: {
+          background: "linear-gradient(to right, #ff0000, #ff6600)",
+          fontSize: "20px",
+          color: "#fff",
+        },
+      }).showToast();
+      console.error("Failed to save data", response.status);
+    }
+  } catch (error) {
+    console.error("Network error: ", error);
+  }
+});
+
+console.log(passwordCustomer);
+
+btnSubmitLogin.addEventListener("click", async function (e) {
+  e.preventDefault();
+  var email = inputEmailLogin.value.trim();
+  var password = inputPasswordLogin.value.trim();
+
+  const data = {
+    email: email,
+    password: password,
+  };
+
+  const response = await fetch("/save-to-database-login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  console.log(response);
+  if (!response.ok) {
+    Toastify({
+      text: `Đăng nhập thất bại. 
+      Tài khoản hoặc mật khẩu không đúng`,
+      duration: 3000,
+      newWindow: true,
+      close: true,
+      gravity: "right",
+      position: "right",
+      stopOnFocus: true,
+      offset: {
+        x: 30,
+        y: 80,
+      },
+      style: {
+        background: "linear-gradient(to right, #ff0000, #ff6600)",
+        fontSize: "20px",
+        color: "#fff",
+      },
+    }).showToast();
+    console.error("Failed to save data", response.status);
+    console.log("Đăng nhập thành công");
+  } else {
+    Toastify({
+      text: "Đăng nhập thành công",
+      duration: 3000,
+      newWindow: true,
+      close: true,
+      gravity: "right",
+      position: "right",
+      stopOnFocus: true,
+      offset: {
+        x: 30,
+        y: 80,
+      },
+      style: {
+        background: "linear-gradient(to right, #00b09b, #96c93d)",
+        fontSize: "20px",
+      },
+    }).showToast();
+    console.log("Đăng nhập thất bại");
+  }
 });

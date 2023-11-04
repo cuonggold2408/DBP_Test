@@ -1,8 +1,8 @@
-var inputFullNameRegister = document.querySelector("#form-2 #fullName");////////////////////////////////////////
+var inputFullNameRegister = document.querySelector("#form-2 #fullName");
 var errFullNameRegister = document.querySelector("#form-2 .err-fullName");
-var inputEmailRegister = document.querySelector("#form-2 #email");////////////////////////////////
+var inputEmailRegister = document.querySelector("#form-2 #email");
 var errEmailRegister = document.querySelector("#form-2 .err-email");
-var inputPasswordRegister = document.querySelector("#form-2 #password");///////////////////////
+var inputPasswordRegister = document.querySelector("#form-2 #password");
 var errPasswordRegister = document.querySelector("#form-2 .err-pass");
 var showHideEleRegister = document.querySelector("#form-2 .show-hide");
 var eyeNormalEleRegister = document.querySelector("#form-2 .show-hide i");
@@ -209,18 +209,17 @@ showHideEleRegister.addEventListener("click", function () {
     eyeNormalEleRegister.classList.add("fa-eye");
   }
 });
+
 // const data = {
 //   name: inputFullNameRegister.value,
 //   email: inputEmailRegister.value,
-//   password: inputPasswordRegister.value
+//   password: inputPasswordRegister.value,
 // };
-// console.log(inputFullNameRegister.value);
-// console.log(inputEmailRegister.value);
-// console.log(inputPasswordRegister.value);
+
 // fetch("/save-to-database", {
 //   method: "POST",
 //   headers: {
 //     "Content-Type": "application/json",
 //   },
 //   body: JSON.stringify(data),
-// })
+// });
