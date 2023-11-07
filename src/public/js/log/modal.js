@@ -310,6 +310,12 @@ btnSubmitLogin.addEventListener("click", async function (e) {
         background: "linear-gradient(to right, #00b09b, #96c93d)",
         fontSize: "20px",
       },
+      callback: function () {
+        document.querySelector(".modal").classList.remove("show");
+        setTimeout(() => {
+          window.location.reload();
+        }, 1);
+      },
     }).showToast();
     console.log("Đăng nhập thất bại");
   }

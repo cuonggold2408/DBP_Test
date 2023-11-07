@@ -12,6 +12,7 @@ const {
   getSellProduct,
   getCustomer,
   checkLoginCredentials,
+  gettransport,
 } = require("../controllers/homeController");
 const router = express.Router();
 
@@ -43,5 +44,6 @@ router.post("/save-to-database", (req, res) => {
 router.post("/save-to-database-customer", getCustomer);
 
 router.post("/save-to-database-login", checkLoginCredentials);
+router.post("/save-to-database-transport", gettransport);
 
 module.exports = router;

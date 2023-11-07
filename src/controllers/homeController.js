@@ -10,7 +10,7 @@ const {
   getColor1,
   getSell,
   getAllCustomer,
-  getSum
+  getSum,
 } = require("../services/crudservice");
 
 // Export the set object
@@ -90,14 +90,47 @@ const getCustomer = async (req, res) => {
       `INSERT INTO Customer (email, fullname, password) VALUES (?, ?, ?)`,
       [email, name, password]
     );
+    const query = `SELECT * FROM Customer WHERE email = ?`;
+    const [user] = await connection.execute(query, [email]);
+    let [result, fields] = await connection.query(`insert into discount(id_Customer, consume, rank) values(?, ?, ?)`,[user[0].id, 0, "bronze"]);
 
+
+    
     res.status(201).send("Customer created successfully");
   } catch (err) {
     console.error(err);
     res.status(500).send("Internal Server Error");
   }
 };
+const gettransport= async (req, res) => {
+  const { name, phone, email, province, district, note } = req.body;
+  let [results, fields] = await connection.query(`insert into Transport(id_Customer, Name, email, phone, province, district, note) 
+  values(?, ?, ?, ?, ?, ?, ?)`, [id_Customer, name, phone, email, province, district, note]) ;
 
+
+  // tinh tong tien 
+  const query = `select sum(Cart.price_left * Cart.SmartPhone_Quantity) as sum
+  from (select sd.link, sd.price_left, sd.price_right, ca.SmartPhone_Quantity, tmp.name, sd.id, tmp.name_detail
+  from Cart as ca, SmartPhone_Detail as sd, SmartPhone as tmp
+  where ca.SmartPhone_id = sd.id and ca.color = sd.color and tmp.id = ca.SmartPhone_id and ca.id_Customer = ?) as Cart;`;
+  const [user] = await connection.execute(query, [id_Customer]);
+  let [results1, fields1] = await connection.query(
+  `update discount
+  set consume = consume + ?
+  where id_Customer = ?;`, [user[0].sum, id_Customer]);
+
+  let[results2, fields2] = await connection.query(`update discount
+  set rank = 
+  (SELECT 
+      CASE
+          WHEN consume <= 30000000 THEN "bronze"
+          WHEN consume > 30000000 AND consume <= 45000000 THEN "silver"
+          WHEN consume > 45000000 AND consume <= 70000000 THEN "gold"
+          ELSE "diamond"
+      END) 
+  where id_Customer = ?;`, [id_Customer]);
+
+};
 const checkLoginCredentials = async (req, res) => {
   const { email, password } = req.body;
 
@@ -131,4 +164,5 @@ module.exports = {
   getSellProduct,
   getCustomer,
   checkLoginCredentials,
+  gettransport,
 };

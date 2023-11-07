@@ -73,10 +73,16 @@ let getSell = async (id_Customer) => {
     return results;
 }
 let getSum = async (id_Customer) => {
-  let [results, fields] = await connection.query(`select sum(Cart.price_left * Cart.SmartPhone_Quantity) as sum
-  from (select sd.link, sd.price_left, sd.price_right, ca.SmartPhone_Quantity, tmp.name, sd.id, tmp.name_detail
-  from Cart as ca, SmartPhone_Detail as sd, SmartPhone as tmp
-  where ca.SmartPhone_id = sd.id and ca.color = sd.color and tmp.id = ca.SmartPhone_id and ca.id_Customer = ?) as Cart;`, [id_Customer]);
+  let [results, fields] = await connection.query(`select s.sum * (100 - dis.discount) / 100 as sum
+  from 
+  (select sum(Cart.price_left * Cart.SmartPhone_Quantity) as sum
+  from
+    (select sd.link, sd.price_left, sd.price_right, ca.SmartPhone_Quantity, tmp.name, sd.id, tmp.name_detail
+    from Cart as ca, SmartPhone_Detail as sd, SmartPhone as tmp
+    where ca.SmartPhone_id = sd.id and ca.color = sd.color and tmp.id = ca.SmartPhone_id and ca.id_Customer = ?) as Cart ) as s,
+    (select discount
+  from codeDiscount, discount
+  where codeDiscount.rank = discount.rank and discount.id_Customer = ?) as dis`, [id_Customer, id_Customer]);
     return results;
 }
 let getAllCustomer = async () => {
