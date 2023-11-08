@@ -15,7 +15,7 @@ const {
 
 // Export the set object
 let color = "black";
-let id_Customer ;
+let id_Customer;
 const getHomepage = async (req, res) => {
   color = "black";
   let results = await GetProduct();
@@ -70,7 +70,11 @@ const getSellProduct = async (req, res) => {
   let results = await getSell(id_Customer);
   let product = await getSum(id_Customer);
   console.log(results);
-  return res.render("sell.ejs", { cart: results , product: product });
+  return res.render("sell.ejs", { cart: results, product: product });
+};
+
+const getCheck = async (req, res) => {
+  return res.render("check.ejs");
 };
 
 const getCustomer = async (req, res) => {
@@ -92,34 +96,40 @@ const getCustomer = async (req, res) => {
     );
     const query = `SELECT * FROM Customer WHERE email = ?`;
     const [user] = await connection.execute(query, [email]);
-    let [result, fields] = await connection.query(`insert into discount(id_Customer, consume, rank) values(?, ?, ?)`,[user[0].id, 0, "bronze"]);
+    let [result, fields] = await connection.query(
+      `insert into discount(id_Customer, consume, rank) values(?, ?, ?)`,
+      [user[0].id, 0, "bronze"]
+    );
 
-
-    
     res.status(201).send("Customer created successfully");
   } catch (err) {
     console.error(err);
     res.status(500).send("Internal Server Error");
   }
 };
-const gettransport= async (req, res) => {
+const gettransport = async (req, res) => {
   const { name, phone, email, province, district, note } = req.body;
-  let [results, fields] = await connection.query(`insert into Transport(id_Customer, Name, email, phone, province, district, note) 
-  values(?, ?, ?, ?, ?, ?, ?)`, [id_Customer, name, phone, email, province, district, note]) ;
+  let [results, fields] = await connection.query(
+    `insert into Transport(id_Customer, Name, email, phone, province, district, note) 
+  values(?, ?, ?, ?, ?, ?, ?)`,
+    [id_Customer, name, phone, email, province, district, note]
+  );
 
-
-  // tinh tong tien 
+  // tinh tong tien
   const query = `select sum(Cart.price_left * Cart.SmartPhone_Quantity) as sum
   from (select sd.link, sd.price_left, sd.price_right, ca.SmartPhone_Quantity, tmp.name, sd.id, tmp.name_detail
   from Cart as ca, SmartPhone_Detail as sd, SmartPhone as tmp
   where ca.SmartPhone_id = sd.id and ca.color = sd.color and tmp.id = ca.SmartPhone_id and ca.id_Customer = ?) as Cart;`;
   const [user] = await connection.execute(query, [id_Customer]);
   let [results1, fields1] = await connection.query(
-  `update discount
+    `update discount
   set consume = consume + ?
-  where id_Customer = ?;`, [user[0].sum, id_Customer]);
+  where id_Customer = ?;`,
+    [user[0].sum, id_Customer]
+  );
 
-  let[results2, fields2] = await connection.query(`update discount
+  let [results2, fields2] = await connection.query(
+    `update discount
   set rank = 
   (SELECT 
       CASE
@@ -128,8 +138,9 @@ const gettransport= async (req, res) => {
           WHEN consume > 45000000 AND consume <= 70000000 THEN "gold"
           ELSE "diamond"
       END) 
-  where id_Customer = ?;`, [id_Customer]);
-
+  where id_Customer = ?;`,
+    [id_Customer]
+  );
 };
 const checkLoginCredentials = async (req, res) => {
   const { email, password } = req.body;
@@ -146,7 +157,7 @@ const checkLoginCredentials = async (req, res) => {
       return res.status(401).send("Password is incorrect.");
     }
     id_Customer = user[0].id;
-    res.redirect('http://localhost:8888');
+    res.redirect("http://localhost:8888");
   } catch (err) {
     console.error(err);
     res.status(500).send("Internal Server Error");
@@ -165,4 +176,5 @@ module.exports = {
   getCustomer,
   checkLoginCredentials,
   gettransport,
+  getCheck,
 };

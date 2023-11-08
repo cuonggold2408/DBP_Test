@@ -29,7 +29,10 @@ CREATE TABLE `Cart` (
   `SmartPhone_Quantity` int(11) DEFAULT NULL,
   `color` varchar(255) NOT NULL,
   `id_Customer` int(11) NOT NULL,
-  PRIMARY KEY (`SmartPhone_id`,`color`,`id_Customer`)
+  PRIMARY KEY (`SmartPhone_id`,`color`,`id_Customer`),
+  KEY `fk_constraint_2` (`id_Customer`),
+  CONSTRAINT `fk_constraint_1` FOREIGN KEY (`SmartPhone_id`) REFERENCES `SmartPhone` (`id`),
+  CONSTRAINT `fk_constraint_2` FOREIGN KEY (`id_Customer`) REFERENCES `Customer` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -39,7 +42,7 @@ CREATE TABLE `Cart` (
 
 LOCK TABLES `Cart` WRITE;
 /*!40000 ALTER TABLE `Cart` DISABLE KEYS */;
-INSERT INTO `Cart` VALUES (2,4,'black',5),(3,1,'black',5),(4,9,'black',5),(5,1,'black',5),(8,2,'black',5);
+INSERT INTO `Cart` VALUES (1,1,'black',7),(1,1,'black',14),(1,1,'black',15),(1,1,'black',16),(2,4,'black',5),(2,2,'black',13),(2,1,'black',15),(2,1,'black',16),(3,1,'black',5),(3,4,'black',7),(3,1,'black',15),(3,2,'black',16),(4,9,'black',5),(4,2,'black',7),(5,1,'black',5),(7,1,'black',7),(8,2,'black',5),(10,1,'black',7);
 /*!40000 ALTER TABLE `Cart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -56,7 +59,7 @@ CREATE TABLE `Customer` (
   `fullname` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +68,7 @@ CREATE TABLE `Customer` (
 
 LOCK TABLES `Customer` WRITE;
 /*!40000 ALTER TABLE `Customer` DISABLE KEYS */;
-INSERT INTO `Customer` VALUES (1,'nguyenvantuyentha1975@gmail.com','Nguyễn Thành Đạt','4545465465465'),(2,'nguyenvantuyentha1975@gmail.com','Nguyễn Thành Đạt','45564654'),(3,'nguyenvantuyentha1975@gmail.com','Nguyễn Thành Đạt','45564654'),(4,'nguyenvantuyentha1975@gmail.com','Nguyễn Thành Đạt','5757785'),(5,'tdt.trandinhtuan467@gmail.com','Nguyễn Thành Đạt','123456789'),(6,'vanhvu724@gmail.com','Nguyễn Thành Đạt','123456789');
+INSERT INTO `Customer` VALUES (1,'nguyenvantuyentha1975@gmail.com','Nguyễn Thành Đạt','4545465465465'),(2,'nguyenvantuyentha1975@gmail.com','Nguyễn Thành Đạt','45564654'),(3,'nguyenvantuyentha1975@gmail.com','Nguyễn Thành Đạt','45564654'),(4,'nguyenvantuyentha1975@gmail.com','Nguyễn Thành Đạt','5757785'),(5,'tdt.trandinhtuan467@gmail.com','Nguyễn Thành Đạt','123456789'),(6,'vanhvu724@gmail.com','Nguyễn Thành Đạt','123456789'),(7,'tdt.trandinhtuan467467@gmail.com','Trần Đình Tuấn','123456789'),(8,'abc123@gmail.com','Trần Đình Tuấn','123456789'),(9,'abc1234@gmail.com','Trần Đình Tuấn','123456789'),(10,'abc12345@gmail.com','Trần Đình Tuấn','123456789'),(11,'abc123456@gmail.com','Trần Đình Tuấn','123456789'),(12,'abc132@gmail.com','Trần Đình Tuấn','123456789'),(13,'abc@gmail.com','Trần Đình Tuấn','123456789'),(14,'123@gmail.com','Trần Đình Tuấn','123456789'),(15,'abcd123@gmail.com','Nguyễn Thành Đạt','123456789'),(16,'abcd1234@gmail.com','Nguyễn Thành Đạt','123456789');
 /*!40000 ALTER TABLE `Customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,6 +128,90 @@ INSERT INTO `SmartPhone_Detail` VALUES (1,'black','/images/iphone15/iphone15prom
 UNLOCK TABLES;
 
 --
+-- Table structure for table `Transport`
+--
+
+DROP TABLE IF EXISTS `Transport`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Transport` (
+  `id_Customer` int(11) DEFAULT NULL,
+  `Name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `phone` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `province` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `district` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `note` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  KEY `fk_constraint_3` (`id_Customer`),
+  CONSTRAINT `fk_constraint_3` FOREIGN KEY (`id_Customer`) REFERENCES `Customer` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Transport`
+--
+
+LOCK TABLES `Transport` WRITE;
+/*!40000 ALTER TABLE `Transport` DISABLE KEYS */;
+INSERT INTO `Transport` VALUES (7,'Trần Đình Tuấn','0347785288','tdt.trandinhtuan467@gmail.com','Nghệ An','Thanh Chương','ihdsihdushs'),(12,'','','','','',''),(12,'','','','','',''),(NULL,'','','','','',''),(14,'','','','','',''),(15,'','','','','',''),(16,'','','','','',''),(16,'','','','','','');
+/*!40000 ALTER TABLE `Transport` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `codeDiscount`
+--
+
+DROP TABLE IF EXISTS `codeDiscount`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `codeDiscount` (
+  `rank` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `discount` int(11) DEFAULT NULL,
+  `min_rank` int(11) DEFAULT NULL,
+  `max_rank` int(11) DEFAULT NULL,
+  PRIMARY KEY (`rank`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `codeDiscount`
+--
+
+LOCK TABLES `codeDiscount` WRITE;
+/*!40000 ALTER TABLE `codeDiscount` DISABLE KEYS */;
+INSERT INTO `codeDiscount` VALUES ('bronze',0,0,30000000),('diamond',30,70000000,1000000000),('gold',18,45000000,70000000),('silver',10,30000000,45000000);
+/*!40000 ALTER TABLE `codeDiscount` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `discount`
+--
+
+DROP TABLE IF EXISTS `discount`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `discount` (
+  `id_Customer` int(11) DEFAULT NULL,
+  `consume` int(11) DEFAULT NULL,
+  `rank` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  KEY `id_Customer` (`id_Customer`),
+  KEY `fk_constraint_4` (`rank`),
+  CONSTRAINT `discount_ibfk_1` FOREIGN KEY (`id_Customer`) REFERENCES `Customer` (`id`),
+  CONSTRAINT `fk_constraint_4` FOREIGN KEY (`rank`) REFERENCES `codeDiscount` (`rank`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `discount`
+--
+
+LOCK TABLES `discount` WRITE;
+/*!40000 ALTER TABLE `discount` DISABLE KEYS */;
+INSERT INTO `discount` VALUES (12,171950001,'diamond'),(13,0,'bronze'),(14,38990000,'silver'),(15,100970000,'diamond'),(16,231930000,'diamond');
+/*!40000 ALTER TABLE `discount` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `so`
 --
 
@@ -157,4 +244,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-05  3:42:41
+-- Dump completed on 2023-11-08 11:36:50

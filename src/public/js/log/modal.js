@@ -1,3 +1,4 @@
+const container = document.querySelector(".container");
 var btnModal = document.querySelector(".btn-login");
 var overlay = document.querySelector(".overlay");
 var modal = document.querySelector(".modal");
@@ -252,6 +253,22 @@ btnSubmitRegister.addEventListener("click", async function (e) {
 
 console.log(passwordCustomer);
 
+var isLoggedIn = false;
+
+const loginBtn = document.querySelector(".login-btn");
+
+function toggleLoginState() {
+  isLoggedIn = !isLoggedIn;
+  loginBtn.textContent = isLoggedIn ? "Logout" : "Login";
+}
+
+function displayHello() {
+  const nameUser = document.createElement("div");
+  nameUser.classList.add("name-user");
+  nameUser.textContent = "Hello";
+  container.appendChild(nameUser);
+}
+
 btnSubmitLogin.addEventListener("click", async function (e) {
   e.preventDefault();
   var email = inputEmailLogin.value.trim();
@@ -292,7 +309,7 @@ btnSubmitLogin.addEventListener("click", async function (e) {
       },
     }).showToast();
     console.error("Failed to save data", response.status);
-    console.log("Đăng nhập thành công");
+    console.log("Đăng nhập thất bại ");
   } else {
     Toastify({
       text: "Đăng nhập thành công",
@@ -312,11 +329,16 @@ btnSubmitLogin.addEventListener("click", async function (e) {
       },
       callback: function () {
         document.querySelector(".modal").classList.remove("show");
-        setTimeout(() => {
-          window.location.reload();
-        }, 1);
+        // setTimeout(() => {
+        //   window.location.reload();
+        // }, 1);
+
+        toggleLoginState();
+        displayHello();
+
+        // const loginBtn = document.querySelector(".login-btn");
       },
     }).showToast();
-    console.log("Đăng nhập thất bại");
+    console.log("Đăng nhập thành công");
   }
 });

@@ -13,6 +13,7 @@ const {
   getCustomer,
   checkLoginCredentials,
   gettransport,
+  getCheck,
 } = require("../controllers/homeController");
 const router = express.Router();
 
@@ -22,6 +23,7 @@ router.get("/cart/:id", getCart1);
 router.get("/cart", getCartAfter);
 router.get("/addToCart/:id", getAddtocart);
 router.get("/delete/:id/:color", deleteProduct);
+router.get("/check", getCheck);
 router.get("/sell", getSellProduct);
 router.post("/getColor/:id", getColor);
 

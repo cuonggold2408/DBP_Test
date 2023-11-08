@@ -1698,4 +1698,88 @@ body {
   cursor: pointer;
 }
 
+.container-footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #faebeb;
+  padding: 20px;
+  border-radius: 5px;
+}
+.container-footer .support h3,
+.container-footer .policy h3,
+.container-footer .contact h3,
+.container-footer .connect h3 {
+  color: rgb(214, 2, 2);
+  margin-bottom: 20px;
+}
+.container-footer .support h4,
+.container-footer .policy h4,
+.container-footer .contact h4,
+.container-footer .connect h4 {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.container-footer .support h4:hover,
+.container-footer .policy h4:hover,
+.container-footer .contact h4:hover,
+.container-footer .connect h4:hover {
+  color: rgb(255, 86, 86);
+}
+.container-footer .connect .logos {
+  display: flex;
+  gap: 10px;
+}
+
+.container .orders {
+  background-color: rgba(204, 204, 204, 0.6549019608);
+  margin-top: 50px;
+  padding: 10px 10px;
+  min-height: 300px;
+  border-radius: 5px;
+}
+.container .orders .info h2 {
+  font-size: 20px;
+  color: red;
+  font-style: italic;
+}
+.container .orders .shipper {
+  margin-top: 20px;
+  font-size: 18px;
+}
+.container .orders .shipper .ship {
+  font-weight: bold;
+}
+.container .orders .info-all {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+.container .orders .info-all .info-person,
+.container .orders .info-all .info-products {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.container .orders .info-all .info-person h3,
+.container .orders .info-all .info-products h3 {
+  font-weight: bold;
+}
+.container .orders .info-all .product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 200px;
+}
+.container .orders .info-all .product .image img {
+  width: 90px;
+  height: 90px;
+}
+.container .orders .info-all .product .wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 20px;
+}
+
 /*# sourceMappingURL=style.css.map */
