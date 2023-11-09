@@ -11,20 +11,23 @@ const {
   getSell,
   getAllCustomer,
   getSum,
+  getName
 } = require("../services/crudservice");
 
 // Export the set object
 let color = "black";
-let id_Customer;
+let id_Customer = 0;
 const getHomepage = async (req, res) => {
   color = "black";
   let results = await GetProduct();
   let results1 = await getDeleteAfter(id_Customer);
   let results2 = await getAllCustomer();
+  let Name = await getName(id_Customer);
   return res.render("home.ejs", {
     product: results,
     results1: results1,
     customer: results2,
+    Name: Name,
   });
 };
 const getProductDetail = async (req, res) => {
@@ -157,13 +160,17 @@ const checkLoginCredentials = async (req, res) => {
       return res.status(401).send("Password is incorrect.");
     }
     id_Customer = user[0].id;
-    res.redirect("http://localhost:8888");
+    res.redirect("/");
   } catch (err) {
     console.error(err);
     res.status(500).send("Internal Server Error");
   }
 };
-
+const setId_Customer = (req, res) => {
+    id_Customer = 0;
+    console.log(id_Customer);
+    res.redirect("/");
+};
 module.exports = {
   getHomepage,
   getProductDetail,
@@ -177,4 +184,5 @@ module.exports = {
   checkLoginCredentials,
   gettransport,
   getCheck,
+  setId_Customer,
 };

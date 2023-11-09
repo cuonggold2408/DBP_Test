@@ -89,6 +89,13 @@ let getAllCustomer = async () => {
   let [results, fields] = await connection.query(`select id, email, fullname, password from Customer`);
   return results;
 }
+let getName = async (id_Customer) => {
+  let [results, fields] = await connection.query(`select case
+  when (select fullname from Customer where id = ?) is null then "hello"
+  else (select fullname from Customer where id = ?)
+  end as fullname`, [id_Customer, id_Customer]);
+  return results;
+}
 module.exports = {
   GetProduct,
   GetProduct_item,
@@ -98,5 +105,6 @@ module.exports = {
   getColor1,
   getSell,
   getAllCustomer,
-  getSum
+  getSum,
+  getName,
 };

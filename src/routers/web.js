@@ -14,9 +14,10 @@ const {
   checkLoginCredentials,
   gettransport,
   getCheck,
+  setId_Customer,
 } = require("../controllers/homeController");
 const router = express.Router();
-
+router.post("/log-out", setId_Customer);
 router.get("/", getHomepage);
 router.get("/ProductDetail/:id", getProductDetail);
 router.get("/cart/:id", getCart1);
@@ -47,5 +48,4 @@ router.post("/save-to-database-customer", getCustomer);
 
 router.post("/save-to-database-login", checkLoginCredentials);
 router.post("/save-to-database-transport", gettransport);
-
 module.exports = router;
