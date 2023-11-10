@@ -97,11 +97,17 @@ let getName = async (id_Customer) => {
   return results;
 }
 let getdata = async (id_Customer) => {
-  let [results, fields] = await connection.query(`select id_Customer, Name, email, phone, concat(province, ", ",district) as address, note, consume
+  let [results, fields] = await connection.query(`select id_Customer, Name, email, phone, concat(province, ", ",district) as address, note, consume, id_cart
   from Transport
   where id_Customer = ?;`, [id_Customer]);
   return results;
 }
+let getcheck1 = async (id_cart) => {
+  let [results,fields] = await connection.query(`select *
+  from ProductTransport
+  where id_cart = ?;`,[id_cart]);
+  return results;
+};
 module.exports = {
   GetProduct,
   GetProduct_item,
@@ -114,4 +120,5 @@ module.exports = {
   getSum,
   getName,
   getdata,
+  getcheck1,
 };

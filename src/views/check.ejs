@@ -43,44 +43,27 @@
               <div class="note">Ghi chú: <%=data[i].note%></div>
               <div class="total-money">Tổng tiền thanh toán: <%= data[i].consume%></div>
             </div>
-            <div class="info-products">
-              <h3>Thông tin đơn hàng</h3>
-              <div class="product">
-                <div class="image">
-                  <img src="/images/iphone-15-pro-max_2__5.webp" alt="" />
-                </div>
-                <div class="wrap">
-                  <div class="info-phone">Iphone 15 ProMax</div>
-                  <div class="color">Màu xám</div>
-                  <div class="quantity">Số lượng: 1</div>
+            <% for(let j = 0 ; j < data[i].items.length; j++) { %>
+              <div class="info-products">
+                <h3>Thông tin đơn hàng</h3>
+                <div class="product">
+                  <div class="image">
+                    <img src= <%= data[i].items[j].link %> alt="" />
+                  </div>
+                  <div class="wrap">
+                    <div class="info-phone"><%= data[i].items[j].name_product %></div>
+                    <div class="color"><%= data[i].items[j].color %> </div>
+                    <div class="quantity">Số lượng: <%= data[i].items[j].amount %></div>
+                  </div>
                 </div>
               </div>
-            </div>
+              
+              
+              <%}%>
+           
           </div>
           <%}%>
-        <div class="info-all">
-          <div class="info-person">
-            <h3>Thông tin người đặt hàng</h3>
-            <div class="name">Họ và tên: Nguyễn Quang Cường</div>
-            <div class="phone">Số điện thoại: 09123456789</div>
-            <div class="address">Địa chỉ: Thị Trấn Lim, Tiên Du, Bắc Ninh</div>
-            <div class="note">Ghi chú: abchehehuhuhihi</div>
-            <div class="total-money">Tổng tiền thanh toán: 100000000</div>
-          </div>
-          <div class="info-products">
-            <h3>Thông tin đơn hàng</h3>
-            <div class="product">
-              <div class="image">
-                <img src="/images/iphone-15-pro-max_2__5.webp" alt="" />
-              </div>
-              <div class="wrap">
-                <div class="info-phone">Iphone 15 ProMax</div>
-                <div class="color">Màu xám</div>
-                <div class="quantity">Số lượng: 1</div>
-              </div>
-            </div>
-          </div>
-        </div>
+       
       </div>
     </div>
   </body>
