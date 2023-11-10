@@ -96,6 +96,12 @@ let getName = async (id_Customer) => {
   end as fullname`, [id_Customer, id_Customer]);
   return results;
 }
+let getdata = async (id_Customer) => {
+  let [results, fields] = await connection.query(`select id_Customer, Name, email, phone, concat(province, ", ",district) as address, note, consume
+  from Transport
+  where id_Customer = ?;`, [id_Customer]);
+  return results;
+}
 module.exports = {
   GetProduct,
   GetProduct_item,
@@ -107,4 +113,5 @@ module.exports = {
   getAllCustomer,
   getSum,
   getName,
+  getdata,
 };

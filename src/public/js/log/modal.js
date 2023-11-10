@@ -30,9 +30,11 @@ var passwordCustomer = document.querySelectorAll(".password-customer");
 var loginBtn = document.querySelector(".login-btn")
 var iconOut = document.querySelector(".icon-out");
 
-let isLoggedin = false;
-
-if(!isLoggedin){
+if (!localStorage.getItem("check_login")) {
+  // Nếu chưa tồn tại, đặt giá trị mặc định
+  localStorage.setItem("check_login", false);
+}
+if(!JSON.parse(localStorage.getItem("check_login"))){
 //An hien modal.
 btnModal.addEventListener("click", function () {
   modal.classList.add("show");
@@ -354,7 +356,8 @@ function toggleLoginState() {
             fontSize: "20px",
           },
           callback: function () {
-          window.location.href = "/";           
+          window.location.href = "/";
+          localStorage.setItem("check_login", true);           
           },
         }).showToast();
         // Chuyển hướng sau khi yêu cầu thành công
@@ -536,6 +539,7 @@ iconOut.addEventListener('click',async function(){
     if (response.ok) {
       // Chuyển hướng sau khi yêu cầu thành công
       window.location.href = "/";
+      localStorage.setItem("check_login", false);
     } else {
       // Xử lý lỗi tại đây
       console.log("fail");

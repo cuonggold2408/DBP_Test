@@ -33,6 +33,31 @@
           <span class="ship">Người giao hàng:</span>
           <span class="name-shipper">Nguyễn Văn A</span>
         </div>
+        <% for(let i = 0; i < data.length; i++) {%>
+          <div class="info-all">
+            <div class="info-person">
+              <h3>Thông tin người đặt hàng</h3>
+              <div class="name">Họ và tên: <%=data[i].Name%>  </div>
+              <div class="phone">Số điện thoại: <%=data[i].phone%></div>
+              <div class="address">Địa chỉ: <%=data[i].address%></div>
+              <div class="note">Ghi chú: <%=data[i].note%></div>
+              <div class="total-money">Tổng tiền thanh toán: <%= data[i].consume%></div>
+            </div>
+            <div class="info-products">
+              <h3>Thông tin đơn hàng</h3>
+              <div class="product">
+                <div class="image">
+                  <img src="/images/iphone-15-pro-max_2__5.webp" alt="" />
+                </div>
+                <div class="wrap">
+                  <div class="info-phone">Iphone 15 ProMax</div>
+                  <div class="color">Màu xám</div>
+                  <div class="quantity">Số lượng: 1</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <%}%>
         <div class="info-all">
           <div class="info-person">
             <h3>Thông tin người đặt hàng</h3>

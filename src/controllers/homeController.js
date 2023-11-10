@@ -11,7 +11,8 @@ const {
   getSell,
   getAllCustomer,
   getSum,
-  getName
+  getName,
+  getdata,
 } = require("../services/crudservice");
 
 // Export the set object
@@ -77,7 +78,8 @@ const getSellProduct = async (req, res) => {
 };
 
 const getCheck = async (req, res) => {
-  return res.render("check.ejs");
+  let result = await getdata(id_Customer);
+  return res.render("check.ejs", {data : result});
 };
 
 const getCustomer = async (req, res) => {
@@ -112,10 +114,11 @@ const getCustomer = async (req, res) => {
 };
 const gettransport = async (req, res) => {
   const { name, phone, email, province, district, note } = req.body;
+  let product = await getSum(id_Customer);
   let [results, fields] = await connection.query(
-    `insert into Transport(id_Customer, Name, email, phone, province, district, note) 
-  values(?, ?, ?, ?, ?, ?, ?)`,
-    [id_Customer, name, phone, email, province, district, note]
+    `insert into Transport(id_Customer, Name, email, phone, province, district, note, consume) 
+  values(?, ?, ?, ?, ?, ?, ?, ?)`,
+    [id_Customer, name, phone, email, province, district, note, product[0].sum]
   );
 
   // tinh tong tien
