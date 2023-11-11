@@ -38,22 +38,25 @@
         </div>
         <ul class="navi">
           <li><a href="/">Home</a></li>
-          <li><a href="#!">Contact</a></li>
-          <li><a href="#!">About</a></li>
-          <li><a href="#!">Log in</a></li>
+          <li><a href="#!" class="contact-shop">Contact</a></li>
+          <li><a href="#!" class="about-shop">About</a></li>
+          <!-- <li><a href="#!">Log in</a></li> -->
           <div class="bar"></div>
         </ul>
         <div class="cart">
-          <div class="input-box">
+          <!-- <div class="input-box">
             <input type="text" placeholder="Search..." />
             <span class="search">
               <i class="uil uil-search search-icon"></i>
             </span>
-          </div>
+          </div> -->
           <div class="icon-cart">
             <a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a>
             <div class="quantity-product"><%= results1.length %></div>
           </div>
+        </div>
+        <div>
+          <span class="appearIcon name-user">Hello</span><i class="fa-solid fa-right-from-bracket icon-out appearIcon" style="margin-left: 20px;cursor: pointer;"></i>
         </div>
       </div>
       <hr />
@@ -286,7 +289,9 @@
     <div id = "link1" style = "display: none"><%= product_item[0].link %></div>
     <div id = "link2" style = "display: none"><%= product_item[0].link_white %></div>
     <div id = "check-color" style = "display: none"><%= color %></div>
+    <script src="/js/common/app.js"></script>
     <script src="/js/choose-color/app.js"></script>
     <script src="/js/changeCosts/cost.js"></script>
+    <script src="/js/appearName/appearName.js"></script>
   </body>
 </html>

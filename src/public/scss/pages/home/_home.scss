@@ -6,7 +6,8 @@ body {
 .header {
   // background-color: #4e4949;
   // background: linear-gradient(to right, #e3e3e3, #f0f0f0);
-  background-color: #383838; /* Màu xám đậm */
+  // background-color: #87c5f7d3; /* Màu xám đậm */
+  background-color: rgba(247, 58, 58, 0.797);
   position: sticky;
   inset: 0;
   z-index: 99;
@@ -26,10 +27,11 @@ body {
         font-weight: 700;
         font-family: $font;
         padding: 5px;
-        background: #121fcf;
-        background: linear-gradient(to right, #5862e7 0%, #ea2d2a 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: rgb(0, 255, 217);
+        // background: linear-gradient(to right, #5862e7 0%, #ea2d2a 100%);
+        // background-color: #fff;
+        // -webkit-background-clip: text;
+        // -webkit-text-fill-color: transparent;
       }
       .border-top {
         position: absolute;
@@ -37,12 +39,14 @@ body {
         right: 0;
         width: 100%;
         height: 3px;
+        background-color: rgb(0, 238, 255);
+
         // background: linear-gradient(to right, #71e9f1, #f9bc2d);
-        background: linear-gradient(
-          to right,
-          #20b2aa,
-          #3cb371
-        ); // Gradient từ màu LightSeaGreen tới màu MediumSeaGreen
+        // background: linear-gradient(
+        //   to right,
+        //   #20b2aa,
+        //   #3cb371
+        // ); // Gradient từ màu LightSeaGreen tới màu MediumSeaGreen
         animation: animate-border-top 2s linear infinite;
       }
       .border-right {
@@ -51,7 +55,9 @@ body {
         right: 0;
         height: 100%;
         width: 3px;
-        background: linear-gradient(to bottom, #71e9f1, #fcc23f);
+        background-color: rgb(0, 238, 255);
+
+        // background: linear-gradient(to bottom, #71e9f1, #fcc23f);
         animation: animate-border-right 2s linear infinite;
         animation-delay: 1s;
       }
@@ -61,7 +67,9 @@ body {
         right: 0;
         width: 100%;
         height: 3px;
-        background: linear-gradient(to left, #71e9f1, #fcc23f);
+        background-color: rgb(0, 238, 255);
+
+        // background: linear-gradient(to left, #71e9f1, #fcc23f);
         animation: animate-border-bottom 2s linear infinite;
       }
       .border-left {
@@ -70,7 +78,8 @@ body {
         left: 0;
         height: 100%;
         width: 3px;
-        background: linear-gradient(to top, #71e9f1, #fcc23f);
+        background-color: rgb(0, 238, 255);
+        // background: linear-gradient(to top, #71e9f1, #fcc23f);
         animation: animate-border-left 2s linear infinite;
         animation-delay: 1s;
       }
@@ -95,58 +104,63 @@ body {
           // );
           // -webkit-background-clip: text;
           // -webkit-text-fill-color: transparent;
-          background-image: linear-gradient(to right, #ff7e67, #ffb20f);
-          -webkit-background-clip: text;
-          color: transparent;
+          // background-image: linear-gradient(to right, #ff7e67, #ffb20f);
+          // -webkit-background-clip: text;
+          color: #fff;
+          transition: color 0.25s linear;
+          &:hover {
+            color: #c6e785;
+          }
         }
 
-        &:hover {
-          &:nth-child(2) ~ .bar {
-            left: 27%;
-            width: 18%;
-          }
-        }
-        &:hover {
-          &:nth-child(3) ~ .bar {
-            left: 58%;
-          }
-        }
-        &:hover {
-          &:nth-child(4) ~ .bar {
-            left: 85%;
-            width: 16%;
-          }
-        }
+        // &:hover {
+        //   &:nth-child(2) ~ .bar {
+        //     left: 27%;
+        //     width: 18%;
+        //   }
+        // }
+        // &:hover {
+        //   &:nth-child(3) ~ .bar {
+        //     left: 58%;
+        //   }
+        // }
+        // &:hover {
+        //   &:nth-child(4) ~ .bar {
+        //     left: 85%;
+        //     width: 16%;
+        //   }
+        // }
       }
-      .bar {
-        // width: 14%;
-        // // background-color: #f564a9;
-        // background: linear-gradient(to right, #9932cc, #1e90ff);
-        // height: 3px;
-        // position: absolute;
-        // left: 0;
-        // bottom: -5px;
-        // transition: 0.5s ease;
-        // border-radius: 2px;
-        width: 14%;
-        background: linear-gradient(
-          to right,
-          #20b2aa,
-          #3cb371
-        ); // Gradient từ màu LightSeaGreen tới màu MediumSeaGreen
-        height: 3px;
-        position: absolute;
-        left: 0;
-        bottom: -5px;
-        transition: 0.5s ease;
-        border-radius: 2px;
-      }
+      // .bar {
+      //   // width: 14%;
+      //   // // background-color: #f564a9;
+      //   // background: linear-gradient(to right, #9932cc, #1e90ff);
+      //   // height: 3px;
+      //   // position: absolute;
+      //   // left: 0;
+      //   // bottom: -5px;
+      //   // transition: 0.5s ease;
+      //   // border-radius: 2px;
+      //   width: 14%;
+      //   background: linear-gradient(
+      //     to right,
+      //     #20b2aa,
+      //     #3cb371
+      //   ); // Gradient từ màu LightSeaGreen tới màu MediumSeaGreen
+      //   height: 3px;
+      //   position: absolute;
+      //   left: 0;
+      //   bottom: -5px;
+      //   transition: 0.5s ease;
+      //   border-radius: 2px;
+      // }
     }
 
     .cart {
       display: flex;
       justify-content: center;
       align-items: center;
+
       .input-box {
         display: flex;
         justify-content: center;
@@ -203,6 +217,7 @@ body {
       .icon-cart {
         font-size: 26px;
         position: relative;
+        color: #fff;
         .quantity-product {
           position: absolute;
           width: 30px;
@@ -934,7 +949,6 @@ body {
   border: none;
   padding: 4px;
   outline: none;
-  font-weight: 600;
   color: #717070;
   // background-color: #fff;
   cursor: pointer;
@@ -1717,6 +1731,10 @@ body {
     }
     .info-all {
       display: flex;
+      &:not(:last-child) {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 20px;
+      }
 
       margin-top: 20px;
       justify-content: space-between;
@@ -1729,25 +1747,45 @@ body {
           font-weight: bold;
         }
       }
-      .product {
+      .wrapper {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-right: 200px;
+        flex-direction: column;
+        .info-products {
+          min-width: 800px;
+          .product {
+            display: flex;
+            justify-content: flex-start;
+            // align-items: center;
+            margin-right: 200px;
 
-        .image {
-          img {
-            width: 90px;
-            height: 90px;
+            .image {
+              img {
+                width: 90px;
+                height: 90px;
+              }
+            }
+            .wrap {
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+              font-size: 20px;
+            }
           }
-        }
-        .wrap {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-          font-size: 20px;
         }
       }
     }
+  }
+}
+
+.appearIcon {
+  display: none;
+}
+
+.checkIcon {
+  font-size: 18px;
+  color: #fff;
+  transition: color 0.25s linear;
+  &:hover {
+    color: #c6e785;
   }
 }

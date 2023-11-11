@@ -36,22 +36,25 @@
         </div>
         <ul class="navi">
           <li><a href="/">Home</a></li>
-          <li><a href="#!">Contact</a></li>
-          <li><a href="#!">About</a></li>
-          <li><a href="#!">Log in</a></li>
+          <li><a href="#!" class="contact-shop">Contact</a></li>
+          <li><a href="#!" class="about-shop">About</a></li>
+          <!-- <li><a href="#!">Log in</a></li> -->
           <div class="bar"></div>
         </ul>
         <div class="cart">
-          <div class="input-box">
+          <!-- <div class="input-box">
             <input type="text" placeholder="Search..." />
             <span class="search">
               <i class="uil uil-search search-icon"></i>
             </span>
-          </div>
+          </div> -->
           <div class="icon-cart">
             <i class="fa-solid fa-cart-shopping"></i>
             <div class="quantity-product"><%= cart.length  %></div>
           </div>
+        </div>
+        <div>
+          <span class="appearIcon name-user">Hello</span><i class="fa-solid fa-right-from-bracket icon-out appearIcon" style="margin-left: 20px;cursor: pointer;"></i>
         </div>
       </div>
       <hr />
@@ -172,5 +175,6 @@
     <script src="/js/common/app.js"></script>
     <script src="/js/changeCosts/cost-cart.js"></script>
     <script src="/js/counter/casio.js"></script>
+    <script src="/js/appearName/appearName.js" ></script>
   </body>
 </html>

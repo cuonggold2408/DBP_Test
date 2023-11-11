@@ -143,7 +143,7 @@ body {
 }
 
 .header {
-  background-color: #383838; /* Màu xám đậm */
+  background-color: rgba(247, 58, 58, 0.797);
   position: sticky;
   inset: 0;
   z-index: 99;
@@ -166,10 +166,7 @@ body {
   font-weight: 700;
   font-family: Inter, sans-serif;
   padding: 5px;
-  background: #121fcf;
-  background: linear-gradient(to right, #5862e7 0%, #ea2d2a 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: rgb(0, 255, 217);
 }
 .header .container .box .border-top {
   position: absolute;
@@ -177,7 +174,7 @@ body {
   right: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(to right, #20b2aa, #3cb371);
+  background-color: rgb(0, 238, 255);
   animation: animate-border-top 2s linear infinite;
 }
 .header .container .box .border-right {
@@ -186,7 +183,7 @@ body {
   right: 0;
   height: 100%;
   width: 3px;
-  background: linear-gradient(to bottom, #71e9f1, #fcc23f);
+  background-color: rgb(0, 238, 255);
   animation: animate-border-right 2s linear infinite;
   animation-delay: 1s;
 }
@@ -196,7 +193,7 @@ body {
   right: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(to left, #71e9f1, #fcc23f);
+  background-color: rgb(0, 238, 255);
   animation: animate-border-bottom 2s linear infinite;
 }
 .header .container .box .border-left {
@@ -205,7 +202,7 @@ body {
   left: 0;
   height: 100%;
   width: 3px;
-  background: linear-gradient(to top, #71e9f1, #fcc23f);
+  background-color: rgb(0, 238, 255);
   animation: animate-border-left 2s linear infinite;
   animation-delay: 1s;
 }
@@ -221,30 +218,11 @@ body {
 }
 .header .container .navi li a {
   font-size: 20px;
-  background-image: linear-gradient(to right, #ff7e67, #ffb20f);
-  -webkit-background-clip: text;
-  color: transparent;
+  color: #fff;
+  transition: color 0.25s linear;
 }
-.header .container .navi li:hover:nth-child(2) ~ .bar {
-  left: 27%;
-  width: 18%;
-}
-.header .container .navi li:hover:nth-child(3) ~ .bar {
-  left: 58%;
-}
-.header .container .navi li:hover:nth-child(4) ~ .bar {
-  left: 85%;
-  width: 16%;
-}
-.header .container .navi .bar {
-  width: 14%;
-  background: linear-gradient(to right, #20b2aa, #3cb371);
-  height: 3px;
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  transition: 0.5s ease;
-  border-radius: 2px;
+.header .container .navi li a:hover {
+  color: #c6e785;
 }
 .header .container .cart {
   display: flex;
@@ -305,6 +283,7 @@ body {
 .header .container .cart .icon-cart {
   font-size: 26px;
   position: relative;
+  color: #fff;
 }
 .header .container .cart .icon-cart .quantity-product {
   position: absolute;
@@ -987,7 +966,6 @@ body {
   border: none;
   padding: 4px;
   outline: none;
-  font-weight: 600;
   color: #717070;
   cursor: pointer;
   display: flex;
@@ -1755,6 +1733,10 @@ body {
   margin-top: 20px;
   justify-content: space-between;
 }
+.container .orders .info-all:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+}
 .container .orders .info-all .info-person,
 .container .orders .info-all .info-products {
   display: flex;
@@ -1765,21 +1747,40 @@ body {
 .container .orders .info-all .info-products h3 {
   font-weight: bold;
 }
-.container .orders .info-all .product {
+.container .orders .info-all .wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+}
+.container .orders .info-all .wrapper .info-products {
+  min-width: 800px;
+}
+.container .orders .info-all .wrapper .info-products .product {
+  display: flex;
+  justify-content: flex-start;
   margin-right: 200px;
 }
-.container .orders .info-all .product .image img {
+.container .orders .info-all .wrapper .info-products .product .image img {
   width: 90px;
   height: 90px;
 }
-.container .orders .info-all .product .wrap {
+.container .orders .info-all .wrapper .info-products .product .wrap {
   display: flex;
   flex-direction: column;
   gap: 10px;
   font-size: 20px;
+}
+
+.appearIcon {
+  display: none;
+}
+
+.checkIcon {
+  font-size: 18px;
+  color: #fff;
+  transition: color 0.25s linear;
+}
+.checkIcon:hover {
+  color: #c6e785;
 }
 
 /*# sourceMappingURL=style.css.map */

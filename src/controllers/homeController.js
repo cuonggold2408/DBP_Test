@@ -82,24 +82,26 @@ const getSellProduct = async (req, res) => {
 const getCheck = async (req, res) => {
   let result = await getdata(id_Customer);
 
-  const data_1 = await Promise.all(result.map(async item => {
-    // Fetch additional data for each id_cart
-    let additionalData = await getcheck1(item.id_cart);
+  const data_1 = await Promise.all(
+    result.map(async (item) => {
+      // Fetch additional data for each id_cart
+      let additionalData = await getcheck1(item.id_cart);
 
-    return {
-      id_Customer: item.id_Customer,
-      Name: item.Name,
-      email: item.email,
-      phone: item.phone,
-      address: item.address,
-      note: item.note,
-      consume: item.consume,
-      id_cart: item.id_cart,
-      items: additionalData,
-    };
-  }));
+      return {
+        id_Customer: item.id_Customer,
+        Name: item.Name,
+        email: item.email,
+        phone: item.phone,
+        address: item.address,
+        note: item.note,
+        consume: item.consume,
+        id_cart: item.id_cart,
+        items: additionalData,
+      };
+    })
+  );
 
-  return res.render("check.ejs", {data : data_1});
+  return res.render("check.ejs", { data: data_1 });
 };
 
 const getCustomer = async (req, res) => {
@@ -168,16 +170,16 @@ const gettransport = async (req, res) => {
     [id_Customer]
   );
 
-
-  // update check.ejS 
-// chuyen tu cart sang producttransport
-    let [results3, filed3] = await connection.query(`select *
+  // update check.ejS
+  // chuyen tu cart sang producttransport
+  let [results3, filed3] = await connection.query(`select *
     from Transport
     order by created_at desc
     limit 1;`);
-    id_cart = results3[0].id_cart;
-    let procedureName = `CopyDataFromCartToTransport123_${Date.now()}`;
-    let [results4, filed4] = await connection.query(`
+  id_cart = results3[0].id_cart;
+  let procedureName = `CopyDataFromCartToTransport123_${Date.now()}`;
+  let [results4, filed4] = await connection.query(
+    `
 
     CREATE PROCEDURE ${procedureName}()
     BEGIN
@@ -271,13 +273,17 @@ const gettransport = async (req, res) => {
       END LOOP;
       CLOSE cart_cursor;
     END; 
-    `,[id_Customer, id_cart]);
-    let callProcedureQuery = `CALL ${procedureName}();`;
-// Assuming id_Customer and id_cart are defined somewhere in your code
-let [results5, fields5] = await connection.query(callProcedureQuery);
-let [results6, fields6] = await connection.query(`delete from Cart
-where id_Customer = ?;`, [id_Customer]);
-
+    `,
+    [id_Customer, id_cart]
+  );
+  let callProcedureQuery = `CALL ${procedureName}();`;
+  // Assuming id_Customer and id_cart are defined somewhere in your code
+  let [results5, fields5] = await connection.query(callProcedureQuery);
+  let [results6, fields6] = await connection.query(
+    `delete from Cart
+where id_Customer = ?;`,
+    [id_Customer]
+  );
 };
 const checkLoginCredentials = async (req, res) => {
   const { email, password } = req.body;
@@ -301,9 +307,9 @@ const checkLoginCredentials = async (req, res) => {
   }
 };
 const setId_Customer = (req, res) => {
-    id_Customer = 0;
-    console.log(id_Customer);
-    res.redirect("/");
+  id_Customer = 0;
+  console.log(id_Customer);
+  res.redirect("/");
 };
 module.exports = {
   getHomepage,

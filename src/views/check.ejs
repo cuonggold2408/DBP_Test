@@ -8,6 +8,13 @@
       href="https://cdn-uicons.flaticon.com/2.0.0/uicons-regular-straight/css/uicons-regular-straight.css"
     />
     <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+    <link
       rel="icon"
       type="images/x-icon"
       href="https://courses.uet.vnu.edu.vn/pluginfile.php/1/theme_lambda/favicon/1695283202/captiveportal-logo2_new.png"
@@ -21,6 +28,42 @@
     <title>Check order</title>
   </head>
   <body>
+
+    <header class="header">
+      <div class="container">
+        <div class="box">
+          <a href="/">
+            <h1 class="title-shop">CTĐ Shop</h1>
+          </a>
+          <span class="border-top"></span>
+          <span class="border-right"></span>
+          <span class="border-bottom"></span>
+          <span class="border-left"></span>
+        </div>
+        <ul class="navi">
+          <li><a href="/">Home</a></li>
+          <li><a href="#!">Contact</a></li>
+          <li><a href="#!">About</a></li>
+          <!-- <li><a href="#!">Log in</a></li> -->
+          <div class="bar"></div>
+        </ul>
+        <div class="cart">
+          <!-- <div class="input-box">
+            <input type="text" placeholder="Search..." />
+            <span class="search">
+              <i class="uil uil-search search-icon"></i>
+            </span>
+          </div> -->
+          <div class="icon-cart">
+            <a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+            <div class="quantity-product">1</div>
+          </div>
+        </div>
+      </div>
+      <hr />
+    </header>
+    <!-- End .header -->
+
     <div class="container">
       <div class="orders">
         <div class="info">
@@ -31,7 +74,6 @@
         </div>
         <div class="shipper">
           <span class="ship">Người giao hàng:</span>
-          <span class="name-shipper">Nguyễn Văn A</span>
         </div>
         <% for(let i = 0; i < data.length; i++) {%>
           <div class="info-all">
@@ -43,25 +85,27 @@
               <div class="note">Ghi chú: <%=data[i].note%></div>
               <div class="total-money">Tổng tiền thanh toán: <%= data[i].consume%></div>
             </div>
-            <% for(let j = 0 ; j < data[i].items.length; j++) { %>
+            <div class="wrapper">
               <div class="info-products">
                 <h3>Thông tin đơn hàng</h3>
-                <div class="product">
-                  <div class="image">
-                    <img src= <%= data[i].items[j].link %> alt="" />
+                <% for(let j = 0 ; j < data[i].items.length; j++) { %>
+                  <div class="product">
+                    <div class="image">
+                      <img src= <%= data[i].items[j].link %> alt="" />
+                    </div>
+                    <div class="wrap">
+                      <div class="info-phone"><%= data[i].items[j].name_product %></div>
+                      <div class="color"><%= data[i].items[j].color %> </div>
+                      <div class="quantity">Số lượng: <%= data[i].items[j].amount %></div>
+                    </div>
                   </div>
-                  <div class="wrap">
-                    <div class="info-phone"><%= data[i].items[j].name_product %></div>
-                    <div class="color"><%= data[i].items[j].color %> </div>
-                    <div class="quantity">Số lượng: <%= data[i].items[j].amount %></div>
-                  </div>
+                  <%}%>
                 </div>
-              </div>
-              
-              
-              <%}%>
-           
-          </div>
+                
+                
+             
+            </div>
+            </div>
           <%}%>
        
       </div>

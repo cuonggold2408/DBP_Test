@@ -37,22 +37,25 @@
         </div>
         <ul class="navi">
           <li><a href="/">Home</a></li>
-          <li><a href="#!">Contact</a></li>
-          <li><a href="#!">About</a></li>
-          <li><a href="#!">Log in</a></li>
+          <li><a href="#!" class="contact-shop" >Contact</a></li>
+          <li><a href="#!" class="about-shop" >About</a></li>
+          <!-- <li><a href="#!">Log in</a></li> -->
           <div class="bar"></div>
         </ul>
         <div class="cart">
-          <div class="input-box">
+          <!-- <div class="input-box">
             <input type="text" placeholder="Search..." />
             <span class="search">
               <i class="uil uil-search search-icon"></i>
             </span>
-          </div>
+          </div> -->
           <div class="icon-cart">
             <a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a>
             <div class="quantity-product"><%= cart.length  %></div>
           </div>
+        </div>
+        <div>
+          <span class="appearIcon name-user">Hello</span><i class="fa-solid fa-right-from-bracket icon-out appearIcon" style="margin-left: 20px;cursor: pointer;"></i>
         </div>
       </div>
       <hr />
@@ -100,17 +103,17 @@
           <div class="info-customer">
             <div class="name-phone">
               <div class="name">
-                <input type="text" class="input-name" placeholder=" " />
+                <input type="text" required class="input-name" placeholder=" " />
                 <label for="name" class="label-name">Name</label>
               </div>
               <div class="phone">
-                <input type="tel" class="input-tel" placeholder=" " />
+                <input type="tel" required class="input-tel" placeholder=" " />
                 <label for="phone" class="label-phone">Phone</label>
               </div>
             </div>
             <!-- End .name-phone -->
             <div class="email-customer">
-              <input type="email" class="input-email" placeholder=" " />
+              <input type="email" required class="input-email" placeholder=" " />
               <label for="email" class="label-email">Email</label>
             </div>
             <!-- End .email-customer -->
@@ -126,14 +129,14 @@
           <div class="info-receive">
             <div class="province-district">
               <div class="province-customer">
-                <input type="text" class="input-province" placeholder=" " />
+                <input type="text" required class="input-province" placeholder=" " />
                 <label for="province" class="label-province"
                   >TỈNH/THÀNH PHỐ</label
                 >
               </div>
               <!-- End .province -->
               <div class="district-customer">
-                <input type="text" class="input-district" placeholder=" " />
+                <input type="text" required class="input-district" placeholder=" " />
                 <label for="district" class="label-district">Quận/Huyện</label>
               </div>
             </div>
@@ -184,12 +187,14 @@
             <span><%= product[0].sum %>đ</span>
           </div>
           <a href = "/"><div class="payment">
-            <button class="btn-pay">Thanh toán</button>
+            <button type="submit" class="btn-pay">Thanh toán</button>
           </div></a>
+      
         </div>
       </div>
     </div>
     <script src="/js/sellcustomer/sell.js"></script>
+    <script src="/js/appearName/appearName.js" ></script>
   </body>
 </html>
 
