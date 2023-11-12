@@ -37,16 +37,19 @@ const getProductDetail = async (req, res) => {
   let id = req.params.id;
   let results = await GetProduct_item(id);
   let results1 = await getDeleteAfter(id_Customer);
+  let Name = await getName(id_Customer);
   return res.render("link-product.ejs", {
     product_item: results,
     results1: results1,
     color: color,
+    Name: Name,
   });
 };
 
 const getCart1 = async (req, res) => {
   let id = req.params.id;
   let results = await GetCart(id, color, id_Customer);
+
 
   res.redirect("/cart");
 };
@@ -58,7 +61,8 @@ const deleteProduct = async (req, res) => {
 };
 const getCartAfter = async (req, res) => {
   let results = await getDeleteAfter(id_Customer);
-  return res.render("cart.ejs", { cart: results });
+  let Name = await getName(id_Customer);
+  return res.render("cart.ejs", { cart: results , Name: Name });
 };
 const getAddtocart = async (req, res) => {
   let id = req.params.id;
@@ -75,8 +79,9 @@ const getColor = async (req, res) => {
 const getSellProduct = async (req, res) => {
   let results = await getSell(id_Customer);
   let product = await getSum(id_Customer);
+  let Name = await getName(id_Customer);
   console.log(results);
-  return res.render("sell.ejs", { cart: results, product: product });
+  return res.render("sell.ejs", { cart: results, product: product , Name: Name});
 };
 
 const getCheck = async (req, res) => {
@@ -284,6 +289,7 @@ const gettransport = async (req, res) => {
 where id_Customer = ?;`,
     [id_Customer]
   );
+  res.redirect("/");
 };
 const checkLoginCredentials = async (req, res) => {
   const { email, password } = req.body;

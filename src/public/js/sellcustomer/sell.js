@@ -24,11 +24,21 @@ btnPay.addEventListener("click", async function() {
   };
   
 
-  const response = await fetch("/save-to-database-transport", {
+  try{const response = await fetch("/save-to-database-transport", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
   });
+  if (response.ok) {
+    // Chuyển hướng sau khi yêu cầu thành công
+    window.location.href = "/";
+  } else {
+    // Xử lý lỗi tại đây
+    console.log("fail");
+  }
+} catch (error) {
+  console.error(error);
+}
 })
