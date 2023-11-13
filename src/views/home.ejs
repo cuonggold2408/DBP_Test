@@ -61,8 +61,14 @@
           </div>
          
         </div>
-        <div>
+        <div class="nameUser">
           <span class="appearIcon name-user"><%= Name[0].fullname %></span><i class="fa-solid fa-right-from-bracket icon-out appearIcon" style="margin-left: 20px;cursor: pointer;"></i>
+          <div class="rank-user">
+            <div class="image-rank">
+              <span>Hạng của bạn hiện tại:</span> 
+              <img src="/images/ranking/bronze.png" alt="">
+            </div>
+          </div>
         </div>
       </div>
       <hr />
@@ -196,13 +202,16 @@
     <section class="select-products">
       <div class="container">
         <div class="info-bar">
-          <div class="phone">
-            <div class="include">
-              <i class="fa-solid fa-mobile"></i>
-              <span>Điện thoại, Tablet</span>
+          <a href="#movetoPhone" style="color: black;">
+            <div class="phone">
+              <div class="include">
+                <i class="fa-solid fa-mobile"></i>
+                <span>Điện thoại, Tablet</span>
+              </div>
+              <i class="fa-solid fa-angle-right right"></i>
             </div>
-            <i class="fa-solid fa-angle-right right"></i>
-          </div>
+          </a>
+        <a href="#movetoLaptop" style="color: black;">
           <div class="phone">
             <div class="include">
               <i class="fa-solid fa-laptop"></i>
@@ -210,6 +219,7 @@
             </div>
             <i class="fa-solid fa-angle-right right"></i>
           </div>
+        </a>
           <div class="phone">
             <div class="include">
               <i class="fa-solid fa-headphones"></i>
@@ -324,7 +334,7 @@
     <main class="main-products">
       <div class="container">
         <div class="title">
-          <h2>ĐIỆN THOẠI NỔI BẬT</h2>
+          <h2>ĐIỆN THOẠI</h2>
           <div class="info">
             <div class="apple">
               <a href="#!">Apple</a>
@@ -341,7 +351,7 @@
           </div>
         </div>
         <!-- End .title -->
-        <div class="product-info-container">
+        <div id="movetoPhone" class="product-info-container">
           <% for(let i = 0; i < 5; i++) {%>
             <div class="product-info">
               <a
@@ -442,6 +452,77 @@
             <%}%>
         </div>
         <!-- End .product-info-container -->
+      </div>
+    </main>
+    <!-- End .main -->
+
+    <main class="main-products" style="margin-top: 50px;">
+      <div class="container">
+        <div class="title">
+          <h2>MÁY TÍNH</h2>
+          <div class="info">
+            <div class="apple">
+              <a href="#!">Macbook</a>
+            </div>
+            <div class="xiaomi">
+              <a href="#!">Lenovo</a>
+            </div>
+            <div class="samsung">
+              <a href="#!">Acer</a>
+            </div>
+            <div class="oppo">
+              <a href="#!">Thinkpad</a>
+            </div>
+          </div>
+        </div>
+        <!-- End .title -->
+        <div id="movetoLaptop" class="product-info-container">
+            <div class="product-info">
+              <a
+                href=""
+                target="_self"
+                class="link-images"
+              >
+                <div class="product-images">
+                  <img
+                    src="/images/Macbook/air_m2.webp"
+                    alt=""
+                    loading="lazy"
+                  />
+                </div>
+                <!-- End .product-images -->
+                <div class="product-name">
+                  <h3>Macbook Air M1 256GB 2020 | Chính hãng Apple Việt Nam</h3>
+                </div>
+                <!-- End .product-name -->
+                <div class="box-price">
+                  <p class="price-left">18990000</p>
+                  <p class="price-right">22990000</p>
+                </div>
+                <!-- End .box-price -->
+                <div class="guarantee">
+                  <p>Bảo hành đến khi máy hỏng</p>
+                </div>
+                <!-- End .guarantee -->
+                <div class="rating">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <!-- End .rating -->
+                <div class="comment">
+                  <img
+                  
+                    src="/images/1683793637728_label.webp"
+                    alt="siêu rẻ"
+                  />
+                </div>
+                <!-- End .comment -->
+              </a>
+            </div>            
+        </div>
       </div>
     </main>
     <!-- End .main -->

@@ -2,6 +2,10 @@ body {
   font-family: $font;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 // Header
 .header {
   // background-color: #4e4949;
@@ -1787,5 +1791,42 @@ body {
   transition: color 0.25s linear;
   &:hover {
     color: #c6e785;
+  }
+}
+
+.nameUser {
+  position: relative;
+
+  .name-user {
+    cursor: pointer;
+  }
+
+  .rank-user {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 110%;
+    left: -50px;
+    transition: all 0.3s ease-in-out;
+    background-color: rgb(105, 236, 105);
+    border-radius: 5px;
+    z-index: 999;
+    width: 230px;
+    .image-rank {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        padding: 5px;
+      }
+    }
+  }
+
+  &:hover .rank-user {
+    opacity: 1;
+    visibility: visible;
   }
 }

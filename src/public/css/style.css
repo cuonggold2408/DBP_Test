@@ -142,6 +142,10 @@ body {
   font-family: Inter, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .header {
   background-color: rgba(247, 58, 58, 0.797);
   position: sticky;
@@ -1781,6 +1785,40 @@ body {
 }
 .checkIcon:hover {
   color: #c6e785;
+}
+
+.nameUser {
+  position: relative;
+}
+.nameUser .name-user {
+  cursor: pointer;
+}
+.nameUser .rank-user {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 110%;
+  left: -50px;
+  transition: all 0.3s ease-in-out;
+  background-color: rgb(105, 236, 105);
+  border-radius: 5px;
+  z-index: 999;
+  width: 230px;
+}
+.nameUser .rank-user .image-rank {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nameUser .rank-user .image-rank img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  padding: 5px;
+}
+.nameUser:hover .rank-user {
+  opacity: 1;
+  visibility: visible;
 }
 
 /*# sourceMappingURL=style.css.map */
