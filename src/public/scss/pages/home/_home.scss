@@ -1,5 +1,6 @@
 body {
   font-family: $font;
+  overflow-x: hidden;
 }
 
 html {
@@ -1756,6 +1757,7 @@ html {
         flex-direction: column;
         .info-products {
           min-width: 800px;
+          max-width: 800px;
           .product {
             display: flex;
             justify-content: flex-start;
@@ -1763,9 +1765,11 @@ html {
             margin-right: 200px;
 
             .image {
+              padding-right: 10px;
               img {
-                width: 90px;
-                height: 90px;
+                width: 100px;
+                height: 100px;
+                object-fit: fill;
               }
             }
             .wrap {

@@ -140,6 +140,7 @@ img {
 
 body {
   font-family: Inter, sans-serif;
+  overflow-x: hidden;
 }
 
 html {
@@ -1757,15 +1758,20 @@ html {
 }
 .container .orders .info-all .wrapper .info-products {
   min-width: 800px;
+  max-width: 800px;
 }
 .container .orders .info-all .wrapper .info-products .product {
   display: flex;
   justify-content: flex-start;
   margin-right: 200px;
 }
+.container .orders .info-all .wrapper .info-products .product .image {
+  padding-right: 10px;
+}
 .container .orders .info-all .wrapper .info-products .product .image img {
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
+  object-fit: fill;
 }
 .container .orders .info-all .wrapper .info-products .product .wrap {
   display: flex;
