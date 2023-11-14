@@ -14,11 +14,12 @@ const {
   getName,
   getdata,
   getcheck1,
+  getRank,
 } = require("../services/crudservice");
 
 // Export the set object
 let color = "black";
-let id_Customer = 0;
+let id_Customer = 12;
 let id_cart = 0;
 const getHomepage = async (req, res) => {
   color = "black";
@@ -26,11 +27,14 @@ const getHomepage = async (req, res) => {
   let results1 = await getDeleteAfter(id_Customer);
   let results2 = await getAllCustomer();
   let Name = await getName(id_Customer);
+  let Rank = await getRank(id_Customer);
+  console.log(Rank);
   return res.render("home.ejs", {
     product: results,
     results1: results1,
     customer: results2,
     Name: Name,
+    rank:Rank,
   });
 };
 const getProductDetail = async (req, res) => {

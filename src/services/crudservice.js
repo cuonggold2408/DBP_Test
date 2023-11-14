@@ -108,6 +108,18 @@ let getcheck1 = async (id_cart) => {
   where id_cart = ?;`,[id_cart]);
   return results;
 };
+let getRank = async (id_Customer) => {
+  let [results, fields] = await connection.query(`select rank, case
+    when rank = "bronze" then '/images/ranking/bronze.png'
+    when rank = "silver" then  '/images/ranking/silver.png'
+    when rank  = "gold" then '/images/ranking/gold.png'
+    when rank = "diamond" then '/images/ranking/diamond.png'
+    else " "
+    end as link
+    from discount
+    where id_Customer = ?`, [id_Customer]);
+  return results;
+};
 module.exports = {
   GetProduct,
   GetProduct_item,
@@ -121,4 +133,5 @@ module.exports = {
   getName,
   getdata,
   getcheck1,
+  getRank,
 };

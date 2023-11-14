@@ -66,7 +66,7 @@
           <div class="rank-user">
             <div class="image-rank">
               <span>Hạng của bạn hiện tại:</span> 
-              <img src="/images/ranking/bronze.png" alt="">
+              <img src= <%= rank.length > 0 ? rank[0].link : 'default_link' %> alt="">
             </div>
           </div>
         </div>
@@ -403,7 +403,7 @@
         </div>
         <!-- End .product-info-container -->
         <div class="product-info-container">
-          <% for(let i = 5; i < product.length; i++) {%>
+          <% for(let i = 5; i < 10; i++) {%>
             <div class="product-info">
               <a
                 href="/ProductDetail/<%= product[i].id %>"
@@ -476,28 +476,30 @@
           </div>
         </div>
         <!-- End .title -->
+        
         <div id="movetoLaptop" class="product-info-container">
+            <% for(let i = 10; i < 15; i++) {%>
             <div class="product-info">
               <a
-                href=""
+                href="/ProductDetail/<%= product[i].id %>"
                 target="_self"
                 class="link-images"
               >
                 <div class="product-images">
                   <img
-                    src="/images/Macbook/air_m2.webp"
+                    src=<%= product[i].link %>
                     alt=""
                     loading="lazy"
                   />
                 </div>
                 <!-- End .product-images -->
                 <div class="product-name">
-                  <h3>Macbook Air M1 256GB 2020 | Chính hãng Apple Việt Nam</h3>
+                  <h3><%= product[i].name %></h3>
                 </div>
                 <!-- End .product-name -->
                 <div class="box-price">
-                  <p class="price-left">18990000</p>
-                  <p class="price-right">22990000</p>
+                  <p class="price-left"><%= product[i].price_left %></p>
+                  <p class="price-right"><%= product[i].price_right %></p>
                 </div>
                 <!-- End .box-price -->
                 <div class="guarantee">
@@ -522,7 +524,60 @@
                 <!-- End .comment -->
               </a>
             </div>            
+            <%} %>
+          
         </div>
+        <div id="movetoLaptop" class="product-info-container">
+          <% for(let i = 15; i < 20; i++) {%>
+          <div class="product-info">
+            <a
+              href="/ProductDetail/<%= product[i].id %>"
+              target="_self"
+              class="link-images"
+            >
+              <div class="product-images">
+                <img
+                  src=<%= product[i].link %>
+                  alt=""
+                  loading="lazy"
+                />
+              </div>
+              <!-- End .product-images -->
+              <div class="product-name">
+                <h3><%= product[i].name %></h3>
+              </div>
+              <!-- End .product-name -->
+              <div class="box-price">
+                <p class="price-left"><%= product[i].price_left %></p>
+                <p class="price-right"><%= product[i].price_right %></p>
+              </div>
+              <!-- End .box-price -->
+              <div class="guarantee">
+                <p>Bảo hành đến khi máy hỏng</p>
+              </div>
+              <!-- End .guarantee -->
+              <div class="rating">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <!-- End .rating -->
+              <div class="comment">
+                <img
+                
+                  src="/images/1683793637728_label.webp"
+                  alt="siêu rẻ"
+                />
+              </div>
+              <!-- End .comment -->
+            </a>
+          </div>            
+          <%} %>
+        </div>
+      </div>
+        
       </div>
     </main>
     <!-- End .main -->
